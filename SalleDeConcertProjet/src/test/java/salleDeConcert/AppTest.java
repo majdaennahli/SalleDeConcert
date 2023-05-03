@@ -1,6 +1,19 @@
-package test;
+package salleDeConcert;
 
-public class app {
+import salleDeConcert.repositories.JpaContext;
+
+public class AppTest {
+	
+	
+	public static void main(String[] args) {
+		JpaContext.getEntityManagerFactory();
+		
+
+		
+		JpaContext.destroy();
+
+	}
+	
 
 	/* 
 	 Menu Principal
@@ -34,9 +47,12 @@ public class app {
 	
 	
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	/*
+	 * 
+	 * 
+	 */
+	
+	
+	
 
 }

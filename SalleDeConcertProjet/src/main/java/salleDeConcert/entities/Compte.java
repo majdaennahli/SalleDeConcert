@@ -1,16 +1,26 @@
-package model;
+package salleDeConcert.entities;
 
+import java.util.Objects;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class Compte {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int id;
 	protected String login;
 	protected String password;
 	
+
 	
-	public Compte(int id, String login, String password) {
-		this.id = id;
-		this.login = login;
-		this.password = password;
+	public Compte() {
+
 	}
+
 
 	public Compte(String login, String password) {
 		this.login = login;
@@ -47,8 +57,21 @@ public abstract class Compte {
 	}
 
 	
-	public String toString() {
-		return "Compte [id=" + id + ", login=" + login + ", password=" + password + "]";
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Compte other = (Compte) obj;
+		return id == other.id;
 	}
 	
 	

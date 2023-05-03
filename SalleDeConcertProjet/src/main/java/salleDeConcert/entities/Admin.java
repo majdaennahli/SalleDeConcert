@@ -1,19 +1,23 @@
-package model;
+package salleDeConcert.entities;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="admin")
+@AttributeOverride(name="id",column = @Column(name="admin_id"))
+@AttributeOverride( name="login", column = @Column(name="admin_login"))
+@AttributeOverride( name="password", column = @Column(name="admin_password"))
+@AttributeOverride( name="email", column = @Column(name="admin_email"))
 public class Admin extends Compte{
 
-	public Admin(int id, String login, String password) {
-		super(id, login, password);	
-	}
+	public Admin() {
 	
-	public Admin(String login, String password) {
-		super(login, password);	
 	}
 
-	public String toString() {
-		return "Admin [id=" + id + ", login=" + login + ", password=" + password + "]";
-	}
 	
-	
+
 	
 }

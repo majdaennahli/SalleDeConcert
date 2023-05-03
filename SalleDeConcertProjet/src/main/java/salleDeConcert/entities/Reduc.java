@@ -1,4 +1,6 @@
-package model;
+package salleDeConcert.entities;
+
+
 
 public enum Reduc {
 	Enfant(0.2), Etudiant(0.1), Autre(0);
@@ -8,4 +10,6 @@ public enum Reduc {
 	private Reduc(double reduc) {
 		this.reduc = reduc;
 	}
+	
+	
 }

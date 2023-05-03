@@ -8,25 +8,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="localisation")
-public class Local {
+@Table(name="staff")
+public class Staff {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="local_id")
+	@Column(name="staff_id")
 	private int id;
-	@Column(name="local_name")
+	@Column(name="staff_name")
 	private String nom;
-	@OneToMany(mappedBy = "local")
+	@ManyToMany(mappedBy = "staffs")
 	private Set<Evenement> evenements;
-	public Local() {
 	
+	
+	public Staff() {
+
 	}
-	public Local(String nom) {
+	public Staff(String nom) {
+	
 		this.nom = nom;
 	}
 	public int getId() {
@@ -59,15 +61,9 @@ public class Local {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Local other = (Local) obj;
+		Staff other = (Staff) obj;
 		return id == other.id;
 	}
-	
-
-	
-
-
-	
 	
 	
 	

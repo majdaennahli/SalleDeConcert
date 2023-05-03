@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="cinema" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="salle_concert" transaction-type="RESOURCE_LOCAL">
 		<!-- implementation de jpa utilise -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
@@ -11,7 +11,7 @@
 			<!-- configuration driver du jdbc -->
 			<property name="hibernate.connection.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<!-- url -->
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/cinema"/>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/salle_concert"/>
 			<property name="hibernate.connection.user" value="root"/>
 			<property name="hibernate.connection.password" value=""/>
 			

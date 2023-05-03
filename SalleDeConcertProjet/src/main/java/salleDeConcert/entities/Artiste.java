@@ -1,71 +1,88 @@
-package model;
+package salleDeConcert.entities;
 
-import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="artiste")
 public class Artiste {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="artiste_id")
 	private int id;
+	@Column(name="artiste_nom")
 	private String nomArtiste;
+	@Column(name="artiste_nationalite")
 	private String nationalite;
-	private List<Prestation> prestations;
 	
+	@ManyToMany(mappedBy = "artistes")
+	private Set<Evenement> evenements;
 
-	public Artiste(int id, String nomArtiste, String nationalite, List<Prestation> prestations) {
-		this.id = id;
-		this.nomArtiste = nomArtiste;
-		this.nationalite = nationalite;
-		this.prestations = prestations;
-	}
+
+	public Artiste() {
 	
-	public Artiste(String nomArtiste, String nationalite, List<Prestation> prestations) {
-		this.nomArtiste = nomArtiste;
-		this.nationalite = nationalite;
-		this.prestations = prestations;
 	}
 
+	public Artiste(String nomArtiste, String nationalite) {
+	
+		this.nomArtiste = nomArtiste;
+		this.nationalite = nationalite;
+	
+	}
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getNomArtiste() {
 		return nomArtiste;
 	}
 
-
 	public void setNomArtiste(String nomArtiste) {
 		this.nomArtiste = nomArtiste;
 	}
-
 
 	public String getNationalite() {
 		return nationalite;
 	}
 
-
 	public void setNationalite(String nationalite) {
 		this.nationalite = nationalite;
 	}
 
-
-	public List<Prestation> getPrestations() {
-		return prestations;
-	}
-
-
-	public void setPrestations(List<Prestation> prestations) {
-		this.prestations = prestations;
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 
 	@Override
-	public String toString() {
-		return "Artiste [id=" + id + ", nomArtiste=" + nomArtiste + ", nationalite=" + nationalite + ", prestations="
-				+ prestations + "]";
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Artiste other = (Artiste) obj;
+		return id == other.id;
+	}
+	
+
+	
+
 	}
 
 
@@ -78,4 +95,4 @@ public class Artiste {
 	
 	
 	
-}
+
