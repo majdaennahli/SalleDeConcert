@@ -26,7 +26,7 @@ public abstract class Evenement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="event_id")
-	private int id;
+	private Long id;
 	@Column(name="event_name")
 	private String nom;
 	@Column(name="event_price")
@@ -81,10 +81,10 @@ public abstract class Evenement {
 		this.typeEvenement = typeEvenement;
 	
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNom() {
