@@ -23,6 +23,12 @@ public class Local {
 	private String nom;
 	@OneToMany(mappedBy = "local")
 	private Set<Evenement> evenements;
+	@Column(name="local_places_pmr")
+	private int placesPMR;
+	@Column(name="local_places_assises")
+	private int placesAssises;
+	@Column(name="local_places_fosse")
+	private int placesFosse;
 	public Local() {
 	
 	}
@@ -46,6 +52,25 @@ public class Local {
 	}
 	public void setEvenements(Set<Evenement> evenements) {
 		this.evenements = evenements;
+	}
+	
+	public int getPlacesPMR() {
+		return placesPMR;
+	}
+	public void setPlacesPMR(int placesPMR) {
+		this.placesPMR = placesPMR;
+	}
+	public int getPlacesAssises() {
+		return placesAssises;
+	}
+	public void setPlacesAssises(int placesAssises) {
+		this.placesAssises = placesAssises;
+	}
+	public int getPlacesFosse() {
+		return placesFosse;
+	}
+	public void setPlacesFosse(int placesFosse) {
+		this.placesFosse = placesFosse;
 	}
 	@Override
 	public int hashCode() {

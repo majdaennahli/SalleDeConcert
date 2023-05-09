@@ -22,7 +22,7 @@ public class Participant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="participant_id")
-	private int id;
+	private Long id;
 	@Column(name="participant_name")
 	private String nom;
 	@Column(name="participant_age")
@@ -49,10 +49,10 @@ public class Participant {
 		this.reduc = reduc;
 		this.typePlace = typePlace;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNom() {
@@ -78,6 +78,14 @@ public class Participant {
 	}
 	public void setTypePlace(TypePlace typePlace) {
 		this.typePlace = typePlace;
+	}
+	
+	
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 	@Override
 	public int hashCode() {

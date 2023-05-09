@@ -20,7 +20,7 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long> {
 	
 	List<Evenement> findByNom(String nom);
 	
-	List<Evenement> findByNomContainig(String nom);
+	List<Evenement> findByNomContaining(String nom);
 	
 	@Query("from Evenement e left join fetch e.artistes a where a.nomArtiste=:nomArtiste")
 	Optional<Evenement>  findByNomArtiste(@Param("nomArtiste") String nomArtiste);
@@ -28,6 +28,13 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long> {
 	List <Artiste> findByArtiste (Artiste artiste);
 	
 	List<Evenement> findByTypeEvenement(TypeEvenement typeEvenement);
+	
+	@Query("from Evenement e where e.typeEvenement=:typeEvenement and e.dateDebut>=CURRENT_DATE()")
+	Optional<Evenement> findByTypeEvenementToCome(@Param("typeEvenement")TypeEvenement typeEvenement);
+	
+	@Query("from Evenement e where e.typeEvenement=:typeEvenement and e.dateDebut=:dateDebut")
+	Optional<Evenement> findByTypeEvenementAndDate(@Param("typeEvenement")TypeEvenement typeEvenement,@Param("dateDebut") LocalDate dateDebut);
+
 
 	List<Evenement> findByDateDebut(LocalDate dateDebut);
 	

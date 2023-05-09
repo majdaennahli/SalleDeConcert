@@ -150,6 +150,14 @@ public abstract class Evenement {
 	public void setTypeEvenement(TypeEvenement typeEvenement) {
 		this.typeEvenement = typeEvenement;
 	}
+	
+	
+	public Set<Artiste> getArtistes() {
+		return artistes;
+	}
+	public void setArtistes(Set<Artiste> artistes) {
+		this.artistes = artistes;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
