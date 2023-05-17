@@ -8,6 +8,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import salleDeConcert.entities.jsonviews.JsonViews;
 
 
 
@@ -19,17 +25,25 @@ import javax.persistence.Table;
 @AttributeOverride( name="email", column = @Column(name="client_email"))
 
 public class Client extends Compte{
-	
+	@NotBlank
 	@Column(name="client_nom")
+	@JsonView(JsonViews.Base.class)
 	private String nom;
+	@NotBlank
 	@Column(name="client_prenom")
+	@JsonView(JsonViews.Base.class)
 	private String prenom;
+	@NotBlank
 	@Column(name="client_tel")
+	@JsonView(JsonViews.Base.class)
 	private String telephone;
+	@NotNull
 	@Column(name="client_naissance")
+	@JsonView(JsonViews.Base.class)
 	private LocalDate naissance;
 	
-@OneToMany(mappedBy = "client")
+	@OneToMany(mappedBy = "client")
+	@JsonView(JsonViews.ClientWithReservations.class)
 	private Set <Reservation> reservations;
 	
 	public Client() {

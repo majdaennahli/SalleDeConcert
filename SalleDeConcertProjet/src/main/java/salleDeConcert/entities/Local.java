@@ -18,7 +18,7 @@ public class Local {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="local_id")
-	private int id;
+	private Long id;
 	@Column(name="local_name")
 	private String nom;
 	@OneToMany(mappedBy = "local")
@@ -35,10 +35,10 @@ public class Local {
 	public Local(String nom) {
 		this.nom = nom;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNom() {

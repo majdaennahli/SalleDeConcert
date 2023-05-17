@@ -15,6 +15,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import salleDeConcert.entities.jsonviews.JsonViews;
+
 
 @Entity
 @Table(name="reservation")
@@ -22,22 +26,30 @@ public class Reservation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="reservation_id")
+	@JsonView(JsonViews.Base.class)
 	private Long id;
 	@Column(name="reservation_price")
+	@JsonView(JsonViews.Base.class)
 	private double prix;
 	@Column(name="reservation_date")
+	@JsonView(JsonViews.Base.class)
 	private LocalDate dateReserv;
-@ManyToOne
-@JoinColumn(name="reservation_client_id",foreignKey = @ForeignKey(name="reservation_client_id_fk"))
-private Client client;
+	@ManyToOne
+	@JoinColumn(name="reservation_client_id",foreignKey = @ForeignKey(name="reservation_client_id_fk"))
+	@JsonView(JsonViews.ReservationWithClients.class)
+	private Client client;
 	@ManyToOne
 	@JoinColumn(name="reservation_event_id",foreignKey = @ForeignKey(name="reservation_event_id_fk"))
+	@JsonView(JsonViews.ReservationWithEvenements.class)
 	private Evenement evenement;
 	@ManyToMany(mappedBy = "reservations")
+	@JsonView(JsonViews.ReservationWithParticipants.class)
 	private Set <Participant> participants;
+	
 	public Reservation() {
 	
 	}
+	
 	public Reservation(double prix, LocalDate dateReserv) {
 		super();
 		this.prix = prix;

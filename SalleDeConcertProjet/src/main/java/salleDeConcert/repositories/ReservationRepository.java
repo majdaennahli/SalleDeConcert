@@ -10,7 +10,6 @@ import org.springframework.data.repository.query.Param;
 
 import salleDeConcert.entities.Client;
 import salleDeConcert.entities.Evenement;
-import salleDeConcert.entities.Local;
 import salleDeConcert.entities.Reservation;
 
 
@@ -23,7 +22,11 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
 	
 	List<Reservation> findByClient(Client client);
 	
+	List<Reservation> findByClientId(Long id);
+	
 	List<Reservation> findByEvenement(Evenement evenement);
+	
+	List<Reservation> findByEvenementId(Long id);
 	
 	@Query("from Reservation r left join fetch r.participants where r.id=:id")
 	Optional <Reservation> findByIdFetchParticipants(@Param("id") Long id);

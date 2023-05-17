@@ -123,17 +123,37 @@ public class EvenementService {
 	public Optional<Evenement> getByTypeEvenementAndDateToCome(TypeEvenement typeEvenement) {
 		return evenementRepo.findByTypeEvenementToCome(typeEvenement);
 	}
-
-	public Page<Evenement> getPage() {
-		return getPage(0, 20);
+	
+	public Evenement getByIdWithArtistes(Long id){
+		checkId(id);
+		return evenementRepo.findByIdFetchArtistes(id).orElseThrow(() -> {
+			throw new EvenementException("id inconnu");
+		});
+	}
+	
+	public Evenement getByIdWithStaffs(Long id){
+		checkId(id);
+		return evenementRepo.findByIdFetchStaffs(id).orElseThrow(() -> {
+			throw new EvenementException("id inconnu");
+		});
+	}
+	
+	public int findDureeJours(Long id) {
+		checkId(id);
+		return evenementRepo.findDureeJours(id).orElseThrow(() -> {
+			throw new EvenementException("id inconnu");
+		});
+	}
+	
+	public String findDureeHeures(Long id) {
+		checkId(id);
+		return evenementRepo.findDureeHeures(id).orElseThrow(() -> {
+			throw new EvenementException("id inconnu");
+		});
 	}
 
-	public Page<Evenement> getPage(int size) {
-		return getPage(0, size);
-	}
-
-	public Page<Evenement> getPage(int page, int size) {
-		Pageable pageable = PageRequest.of(page, size);
+	public Page<Evenement> getPage(int page) {
+		Pageable pageable = PageRequest.of(page, 10); //10 element par page
 		return getPage(pageable);
 	}
 

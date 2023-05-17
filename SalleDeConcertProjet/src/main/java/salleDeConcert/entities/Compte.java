@@ -6,13 +6,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import salleDeConcert.entities.jsonviews.JsonViews;
 
 @MappedSuperclass
 public abstract class Compte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(JsonViews.Base.class)
 	protected Long id;
+	@NotBlank
+	@JsonView(JsonViews.Base.class)
 	protected String login;
+	@NotBlank
+	@JsonView(JsonViews.Base.class)
 	protected String password;
 	
 

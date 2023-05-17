@@ -1,10 +1,11 @@
 package salleDeConcert.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import salleDeConcert.entities.Participant;
-import salleDeConcert.entities.Reservation;
 import salleDeConcert.exceptions.EvenementException;
 import salleDeConcert.exceptions.ParticipantException;
 import salleDeConcert.repositories.ParticipantRepository;
@@ -34,17 +35,21 @@ public class ParticipantService {
 		}
 	}
 	
+	public List<Participant> getAll() {
+		return participantRepo.findAll();
+	}
+	
 	private void checkId(Long id) {
 		if (id == null) {
 			throw new ParticipantException("id null");
 		}
 	}
 	
-	public Participant create(Participant participant) {
-		checkParticipant(participant);
-		return participantRepo.save(participant);
+	private void checkIdEvenement(Long id) {
+		if (id == null) {
+			throw new EvenementException("id Evenement null");
+		}
 	}
-
 	
 	public Participant getById(Long id) {
 		checkId(id);
@@ -53,14 +58,43 @@ public class ParticipantService {
 		});
 	}
 	
+	public Participant create(Participant participant) {
+		checkParticipant(participant);
+		return participantRepo.save(participant);
+	}
+	
+	public Participant update(Participant participant) {
+		Participant participantEnBase = getById(participant.getId());
+		checkParticipant(participant);
+		participantEnBase.setNom(participant.getNom());
+		participantEnBase.setAge(participant.getAge());
+		participantEnBase.setReduc(participant.getReduc());
+		participantEnBase.setTypePlace(participant.getTypePlace());
+		return participantRepo.save(participantEnBase);
+	}
+	
 	public void delete(Participant participant) {
 		delete(participant.getId());
 	}
+	
 	public void delete(Long id) {
 		Participant participantEnBase = getById(id);
 		participantRepo.delete(participantEnBase);
-
+	}
+	
+	public List<Participant> findByIdEvenement(Long idEvenement){
+		checkIdEvenement(idEvenement);
+		return participantRepo.findByIdEvenement(idEvenement);
 	}
 
-	
+//	public Long countByEvenement(Long idEvenement) {
+//		checkIdEvenement(idEvenement);
+//		return participantRepo.countByEvenements(idEvenement);
+//	}
 }
+
+
+
+
+
+

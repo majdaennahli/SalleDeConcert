@@ -16,21 +16,30 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import salleDeConcert.entities.jsonviews.JsonViews;
+
 @Entity
 @Table(name="participant")
 public class Participant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="participant_id")
+	@JsonView(JsonViews.Base.class)
 	private Long id;
 	@Column(name="participant_name")
+	@JsonView(JsonViews.Base.class)
 	private String nom;
+	@JsonView(JsonViews.Base.class)
 	@Column(name="participant_age")
 	private int age;
 	
 	@Enumerated(EnumType.STRING)
+	@JsonView(JsonViews.Base.class)
 	private Reduc reduc;
 	@Enumerated(EnumType.STRING)
+	@JsonView(JsonViews.Base.class)
 	private TypePlace typePlace;
 	
 	@ManyToMany
@@ -38,7 +47,9 @@ public class Participant {
             name="participation",
             joinColumns = @JoinColumn(name="participation_participant_id",foreignKey = @ForeignKey(name="participation_participant_id_fk")),
             inverseJoinColumns = @JoinColumn(name="participation_reservation_id",foreignKey = @ForeignKey(name="participation_reservation_id_fk")))
+	@JsonView(JsonViews.ParticipantWithReservations.class)
 	private Set<Reservation> reservations;
+	
 	public Participant() {
 	
 	}
