@@ -2,6 +2,7 @@ package projetFinal.salleDeConcert.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,12 +29,13 @@ public class SecurityConfig {
 						.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 						.and()
 						.authorizeRequests()
+						.antMatchers(HttpMethod.OPTIONS).permitAll()
 							//manque un truc pour angular
 //							.antMatchers(HttpMethod.POST,"/api/client/inscription").anonymous()
 //							.antMatchers(HttpMethod.GET,"/api/auth").authenticated()
 //							.antMatchers("/api/commande").hasRole("CLIENT")
 //							.anyRequest().hasAnyRole("ADMIN")
-							.anyRequest().permitAll()
+							.anyRequest().authenticated()
 						.and()
 						.httpBasic()
 						.and()

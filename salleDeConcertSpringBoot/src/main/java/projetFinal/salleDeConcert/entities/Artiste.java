@@ -11,18 +11,25 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import projetFinal.salleDeConcert.entities.jsonviews.JsonViews;
+
 @Entity
 @Table(name="artiste")
 public class Artiste {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="artiste_id")
-	private int id;
+	@JsonView(JsonViews.Base.class)
+	private Long id;
 	@Column(name="artiste_nom")
+	@JsonView(JsonViews.Base.class)
 	private String nomArtiste;
 	@Column(name="artiste_nationalite")
+	@JsonView(JsonViews.Base.class)
 	private String nationalite;
-	
+	@JsonView(JsonViews.ArtisteWithEvenements.class)
 	@ManyToMany(mappedBy = "artistes")
 	private Set<Evenement> evenements;
 
@@ -38,11 +45,11 @@ public class Artiste {
 	
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -63,6 +70,15 @@ public class Artiste {
 	}
 
 	
+	
+	public Set<Evenement> getEvenements() {
+		return evenements;
+	}
+
+	public void setEvenements(Set<Evenement> evenements) {
+		this.evenements = evenements;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

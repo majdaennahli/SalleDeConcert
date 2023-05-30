@@ -22,7 +22,7 @@ import projetFinal.salleDeConcert.entities.jsonviews.JsonViews;
 @AttributeOverride(name="id",column = @Column(name="client_id"))
 @AttributeOverride( name="login", column = @Column(name="client_login"))
 @AttributeOverride( name="password", column = @Column(name="client_password"))
-@AttributeOverride( name="email", column = @Column(name="client_email"))
+
 
 public class Client extends Compte{
 	@NotBlank
@@ -51,13 +51,16 @@ public class Client extends Compte{
 	}
 
 
-	public Client(String nom, String prenom, String telephone, LocalDate naissance) {
-		super();
+	public Client(String login,String password ,String nom, String prenom, String telephone, LocalDate naissance) {
+		super(login,password);
 		this.nom = nom;
 		this.prenom = prenom;
 		this.telephone = telephone;
 		this.naissance = naissance;
 	}
+	
+
+
 
 
 	public String getNom() {

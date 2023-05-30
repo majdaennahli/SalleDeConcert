@@ -28,7 +28,6 @@ public abstract class Compte implements UserDetails{
 	@JsonView(JsonViews.Base.class)
 	protected String login;
 	@NotBlank
-	@JsonView(JsonViews.Base.class)
 	protected String password;
 	
 
@@ -118,5 +117,9 @@ public abstract class Compte implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+	@JsonView(JsonViews.Base.class)
+	public String getRole() {
+		return getClass().getSimpleName().toUpperCase();
 	}
 }
