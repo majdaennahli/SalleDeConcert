@@ -1,11 +1,33 @@
 <nav>
-  <a routerLink="/home" routerLinkActive="active" class="btn btn-link">home</a>
+  <a routerLink="/home" routerLinkActive="active" class="btn btn-link">Home</a>
   <a
     *ngIf="verifTypeCompte()"
     routerLink="/evenement"
     routerLinkActive="active"
     class="btn btn-link"
-    >evenement</a
+    >Evenements</a
+  >
+  <a
+    *ngIf="verifTypeCompte()"
+    routerLink="/artiste"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >Artistes</a
+  >
+  <a
+    *ngIf="verifTypeCompte()"
+    routerLink="/staff"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >Staff</a
+  >
+
+  <a
+    *ngIf="verifTypeCompte()"
+    routerLink="/local"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >Locaux</a
   >
 
   <a
@@ -13,10 +35,25 @@
     routerLink="/login"
     routerLinkActive="active"
     class="btn btn-link"
-    >login</a
+    >Login</a
+  >
+  <a
+    *ngIf="!login"
+    routerLink="/inscription"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >S'inscrire</a
+  >
+
+  <a
+    *ngIf="verifTypeCompte()"
+    routerLink="/client"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >Clients</a
   >
   <button *ngIf="login" (click)="logoff()" class="btn btn-link">
-    deconnexion
+    Deconnexion
   </button>
-  <span *ngIf="login">bonjour {{ login }}</span>
+  <span *ngIf="login">Bonjour {{ login }}</span>
 </nav>

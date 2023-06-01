@@ -55,6 +55,13 @@ public class LocalService {
 		});
 	}
 	
+	public Local getByIdWithEvenements(Long id) {
+		checkId(id);
+		return localRepo.findByIdFetchEvenements(id).orElseThrow(() -> {
+			throw new LocalException("id inconnu");
+		});
+	}
+	
 	
 	public List<Local> getAll() {
 		return localRepo.findAll();

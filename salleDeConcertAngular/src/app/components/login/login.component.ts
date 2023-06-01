@@ -26,11 +26,16 @@ export class LoginComponent {
           'Basic ' + btoa(this.login + ':' + this.password)
         );
         sessionStorage.setItem('compte', JSON.stringify(compte));
-        this.router.navigateByUrl('/home');
+        if (this.verifTypeCompte()) {
+          this.router.navigateByUrl('/admin/home');
+        } else this.router.navigateByUrl('/client/home');
       },
       error: (err) => {
         this.displayError = true;
       },
     });
+  }
+  verifTypeCompte() {
+    return this.authSrv.admin;
   }
 }

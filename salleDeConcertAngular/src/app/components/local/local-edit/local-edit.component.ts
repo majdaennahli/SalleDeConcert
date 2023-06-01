@@ -11,38 +11,37 @@ import { LocalService } from 'src/app/services/local.service';
   styleUrls: ['./local-edit.component.css'],
 })
 export class LocalEditComponent implements OnInit {
-  obsEvenements!: Observable<Evenement[]>;
-
-  ngOnInit(): void {
-    this.aR.params.subscribe((params) => {
-      if (params['id']) {
-        this.localSrv.getById(params['id']).subscribe((localJson) => {
-          this.local = localJson;
-        });
-      }
-    });
-    // this.obsEvenements = this.evenementSrv.getEvenements();
-  }
-  local: Local = new Local();
+  local!: Local;
 
   constructor(
     private localSrv: LocalService,
-    // private evenementSrv: EvenementService,
-    private aR: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
+
+  ngOnInit(): void {
+    this.local = new Local();
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['id']) {
+        this.localSrv.getById(params['id']).subscribe((res) => {
+          this.local = res;
+        });
+      }
+    });
+  }
+
   save() {
     if (this.local.id) {
-      this.localSrv.update(this.local).subscribe(() => {
-        this.router.navigate(['/local']);
+      this.localSrv.update(this.local).subscribe((res) => {
+        this.router.navigateByUrl('/local');
       });
     } else {
-      this.localSrv.create(this.local).subscribe((localCree) => {
+      this.localSrv.create(this.local).subscribe((res) => {
         this.router.navigateByUrl('/local');
       });
     }
   }
-
+  // this.obsEvenements = this.evenementSrv.getEvenements();
   // compareById(frsOptionActive: Evenement, frsSelect: Evenement): boolean {
   //   if (frsSelect && frsOptionActive) {
   //     return frsOptionActive.id === frsSelect.id;

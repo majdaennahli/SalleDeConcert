@@ -18,4 +18,31 @@ export class ClientService {
   public loginExist(login: string): Observable<boolean> {
     return this.httpClient.get<boolean>(`${ClientService.URL}/login/${login}`);
   }
+
+  public delete(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${ClientService.URL}/${id}`);
+  }
+
+  public getAll(): Observable<Client[]> {
+    return this.httpClient.get<Client[]>(ClientService.URL);
+  }
+  public getById(id: number): Observable<Client> {
+    return this.httpClient.get<Client>(`${ClientService.URL}/${id}`);
+  }
+
+  public getByIdWithReservations(id: number): Observable<Client> {
+    return this.httpClient.get<Client>(
+      `${ClientService.URL}/${id}/reservations`
+    );
+  }
+  public create(Client: Client): Observable<Client> {
+    return this.httpClient.post<Client>(ClientService.URL, Client);
+  }
+
+  public update(Client: Client): Observable<Client> {
+    return this.httpClient.put<Client>(
+      `${ClientService.URL}/${Client.id}`,
+      Client
+    );
+  }
 }

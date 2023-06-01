@@ -68,5 +68,18 @@ public class JsonViews {
 	public class ArtisteWithEvenements extends Artiste {
 
 	}
+	public class Local extends Base{
+		
+	}
+	
+	public class LocalWithEvenements extends Local{
+		
+	}
+	public class Staff extends Base {
+		
+	}
+	public class StaffWithEvenements extends Staff{
+		
+	}
 
 }

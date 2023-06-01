@@ -3,6 +3,7 @@
 <table class="table">
   <tr>
     <th>id:</th>
+    <th>login:</th>
     <th>nom:</th>
     <th>prenom:</th>
     <th>telephone:</th>
@@ -12,6 +13,7 @@
   </tr>
   <tr *ngFor="let client of clientFiltre()">
     <td>{{ client.id }}</td>
+    <td>{{ client.login }}</td>
     <td>{{ client.nom }}</td>
     <td>{{ client.prenom }}</td>
     <td>{{ client.telephone }}</td>

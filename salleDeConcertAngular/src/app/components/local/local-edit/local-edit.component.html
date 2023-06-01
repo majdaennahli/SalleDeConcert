@@ -1,20 +1,29 @@
-<h1>edition local</h1>
-<div>
+<h1>Edition du local</h1>
+<form (ngSubmit)="save()" #form="ngForm">
   <div class="form-group">
     <label for="id">id:</label>
     <input
       id="id"
-      class="form-control"
+      name="id"
       [(ngModel)]="local.id"
-      readonly
+      class="form-control"
       placeholder="numero auto"
+      readonly
     />
-  </div>
-  <div class="form-group">
-    <label for="nom">nom:</label>
-    <input id="nom" class="form-control" [(ngModel)]="local.nom" />
-  </div>
-  <!-- <div class="form-group">
+    <div class="form-group">
+      <label for="nom">nom:</label>
+      <input
+        id="nom"
+        name="nom"
+        [(ngModel)]="local.nom"
+        class="form-control"
+        required
+        #nomCtrl="ngModel"
+      />
+      <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert alert-danger">
+        nom obligatoire
+      </div>
+      <!-- <div class="form-group">
     <label for="evenement">evenement</label>
     <select
       class="form-control"
@@ -30,46 +39,52 @@
       </option>
     </select>
   </div> -->
-  <div class="form-group">
-    <label for="nbre placesPMR">nbre placesPMR:</label>
-    <input
-      type="number"
-      step="1"
-      id="nbre placesPMR"
-      class="form-control"
-      [(ngModel)]="local.placesPMR"
-    />
-  </div>
-  <div class="form-group">
-    <label for="nbre placesassises">nbre placesAssises:</label>
-    <input
-      type="number"
-      step="1"
-      id="nbre placesAssises"
-      class="form-control"
-      [(ngModel)]="local.placesAssises"
-    />
-  </div>
-  <div class="form-group">
-    <label for="nbre placesFosse">nbre placesFosse:</label>
-    <input
-      type="number"
-      step="1"
-      id="nbre placesFosse"
-      class="form-control"
-      [(ngModel)]="local.placesFosse"
-    />
-  </div>
+      <div class="form-group">
+        <label for="placesPMR">nombre de places PMR:</label>
+        <input
+          id="placesPMR"
+          name="placesPMR"
+          [(ngModel)]="local.placesPMR"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="placesAssises">nombre de places Assises:</label>
+        <input
+          id="placesAssises"
+          name="placesAssises"
+          [(ngModel)]="local.placesAssises"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="placesFosse">nombre de places en Fosse:</label>
+        <input
+          id="placesFosse"
+          name="placesFosse"
+          [(ngModel)]="local.placesFosse"
+          class="form-control"
+          required
+        />
+      </div>
 
-  <div class="form-group">
-    <button (click)="save()" class="btn btn-outline-primary">
-      enregistrer
-    </button>
-    <a
-      routerLink="/local"
-      routerLinkActive="active"
-      class="btn btn-outline-warning"
-      >annuler</a
-    >
+      <div class="form-group">
+        <button
+          type="submit"
+          [disabled]="form.invalid"
+          class="btn btn-outline-primary"
+        >
+          enregistrer
+        </button>
+        <a
+          routerLink="/local"
+          routerLinkActive="active"
+          class="btn btn-outline-warning"
+          >annuler</a
+        >
+      </div>
+    </div>
   </div>
-</div>
+</form>
