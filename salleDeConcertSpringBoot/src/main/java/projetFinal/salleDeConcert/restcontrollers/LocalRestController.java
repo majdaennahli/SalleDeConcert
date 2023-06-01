@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,57 +19,48 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
-
-import projetFinal.salleDeConcert.entities.Client;
+import projetFinal.salleDeConcert.entities.Local;
 import projetFinal.salleDeConcert.entities.jsonviews.JsonViews;
-import projetFinal.salleDeConcert.services.ClientService;
+import projetFinal.salleDeConcert.services.LocalService;
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/api/local")
 @CrossOrigin(origins = "*")
-public class ClientRestController {
-
+public class LocalRestController {
+	
 	@Autowired
-	private ClientService clientSrv;
+	private LocalService localSrv;
 	
 	@GetMapping("")
-	@JsonView(JsonViews.Client.class)
-	public List<Client> getAll() {
-		return clientSrv.getAll();
+	@JsonView(JsonViews.Local.class)
+	public List<Local> getAll() {
+		return localSrv.getAll();
 	}
-	
 	@GetMapping("/{id}")
-	@JsonView(JsonViews.Client.class)
-	public Client getById(@PathVariable("id") Long id) {
-		return clientSrv.getById(id);
+	@JsonView(JsonViews.Local.class)
+	public Local getById(@PathVariable("id") Long id) {
+		return localSrv.getById(id);
 	}
-	
-	@GetMapping("/{id}/reservations")
-	@JsonView(JsonViews.ClientWithReservations.class)
-	public Client getByIdWithReservations(@PathVariable("id") Long id) {
-		return clientSrv.getByIdWithReservations(id);
+	@GetMapping("/{id}/evenements")
+	@JsonView(JsonViews.LocalWithEvenements.class)
+	public Local getByIdWithEvenements(@PathVariable("id") Long id) {
+		return localSrv.getByIdWithEvenements(id);
 	}
-	
+
 	@PostMapping("")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	@JsonView(JsonViews.Client.class)
-	public Client create(@Valid @RequestBody Client client,BindingResult br) {
+	@JsonView(JsonViews.Local.class)
+	public Local create(@Valid @RequestBody Local local,BindingResult br) {
 		if(br.hasErrors()) {
 			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return clientSrv.create(client);
+		return localSrv.create(local);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(JsonViews.Client.class)
-	public Client update(@Valid @RequestBody Client client,BindingResult br,@PathVariable Long id) {
-		client.setId(id);
-		return clientSrv.update(client);
-	}
-	
-	@DeleteMapping("/{id}")
-	@ResponseStatus(code=HttpStatus.NO_CONTENT)
-	public void delete(@PathVariable Long id) {
-		clientSrv.delete(id);
+	@JsonView(JsonViews.Local.class)
+	public Local update(@Valid @RequestBody Local local,BindingResult br,@PathVariable Long id) {
+		local.setId(id);
+		return localSrv.update(local);
 	}
 }

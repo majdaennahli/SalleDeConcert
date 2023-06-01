@@ -1,0 +1,114 @@
+<h1>Edition de l'Evenement</h1>
+<form (ngSubmit)="save()" #form="ngForm">
+  <div class="form-group">
+    <label for="id">id:</label>
+    <input
+      id="id"
+      name="id"
+      [(ngModel)]="evenement.id"
+      class="form-control"
+      placeholder="numero auto"
+      readonly
+    />
+  </div>
+  <div class="form-group">
+    <label for="nom">nom:</label>
+    <input
+      id="nom"
+      name="nom"
+      [(ngModel)]="evenement.nom"
+      class="form-control"
+      required
+      #nomCtrl="ngModel"
+    />
+    <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert alert-danger">
+      nom obligatoire
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="prix">prix:</label>
+    <input
+      id="prix"
+      name="prix"
+      [(ngModel)]="evenement.prix"
+      class="form-control"
+      required
+      #nomCtrl="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="dateDebut">dateDebut:</label>
+    <input
+      type="date"
+      id="dateDebut"
+      name="dateDebut"
+      [(ngModel)]="evenement.dateDebut"
+      class="form-control"
+      required
+      #nomCtrl="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="dateFin">dateFin:</label>
+    <input
+      type="date"
+      id="dateFin"
+      name="dateFin"
+      [(ngModel)]="evenement.dateFin"
+      class="form-control"
+      required
+      #nomCtrl="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="heureDebut">heureDebut:</label>
+    <input
+      type="time"
+      id="heureDebut"
+      name="heureDebut"
+      [(ngModel)]="evenement.heureDebut"
+      class="form-control"
+      required
+      #nomCtrl="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="heureFin">heureFin:</label>
+    <input
+      type="time"
+      id="heureFin"
+      name="heureFin"
+      [(ngModel)]="evenement.heureFin"
+      class="form-control"
+      required
+      #nomCtrl="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="typeEvenement">type d'evenement':</label>
+    <input
+      id="typeEvenement"
+      name="typeEvenement"
+      [(ngModel)]="evenement.typeEvenement"
+      class="form-control"
+      required
+      #nomCtrl="ngModel"
+    />
+  </div>
+
+  <div>
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-outline-primary"
+    >
+      enregistrer
+    </button>
+    <a
+      routerLink="/staff"
+      routerLinkActive="active"
+      class="btn btn-outline-warning"
+      >annuler</a
+    >
+  </div>
+</form>

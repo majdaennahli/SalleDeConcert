@@ -1,0 +1,75 @@
+<h1>edition local</h1>
+<div>
+  <div class="form-group">
+    <label for="id">id:</label>
+    <input
+      id="id"
+      class="form-control"
+      [(ngModel)]="local.id"
+      readonly
+      placeholder="numero auto"
+    />
+  </div>
+  <div class="form-group">
+    <label for="nom">nom:</label>
+    <input id="nom" class="form-control" [(ngModel)]="local.nom" />
+  </div>
+  <!-- <div class="form-group">
+    <label for="evenement">evenement</label>
+    <select
+      class="form-control"
+      id="evenement"
+      [(ngModel)]="local.evenement"
+      [compareWith]="compareById"
+    >
+      <option
+        [ngValue]="evenement"
+        *ngFor="let evenement of obsEvenements | async"
+      >
+        {{ evenement.nom }}
+      </option>
+    </select>
+  </div> -->
+  <div class="form-group">
+    <label for="nbre placesPMR">nbre placesPMR:</label>
+    <input
+      type="number"
+      step="1"
+      id="nbre placesPMR"
+      class="form-control"
+      [(ngModel)]="local.placesPMR"
+    />
+  </div>
+  <div class="form-group">
+    <label for="nbre placesassises">nbre placesAssises:</label>
+    <input
+      type="number"
+      step="1"
+      id="nbre placesAssises"
+      class="form-control"
+      [(ngModel)]="local.placesAssises"
+    />
+  </div>
+  <div class="form-group">
+    <label for="nbre placesFosse">nbre placesFosse:</label>
+    <input
+      type="number"
+      step="1"
+      id="nbre placesFosse"
+      class="form-control"
+      [(ngModel)]="local.placesFosse"
+    />
+  </div>
+
+  <div class="form-group">
+    <button (click)="save()" class="btn btn-outline-primary">
+      enregistrer
+    </button>
+    <a
+      routerLink="/local"
+      routerLinkActive="active"
+      class="btn btn-outline-warning"
+      >annuler</a
+    >
+  </div>
+</div>

@@ -21,56 +21,59 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import projetFinal.salleDeConcert.entities.Client;
+import projetFinal.salleDeConcert.entities.Staff;
 import projetFinal.salleDeConcert.entities.jsonviews.JsonViews;
-import projetFinal.salleDeConcert.services.ClientService;
+import projetFinal.salleDeConcert.services.StaffService;
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/api/staff")
 @CrossOrigin(origins = "*")
-public class ClientRestController {
-
+public class StaffRestController {
+	
 	@Autowired
-	private ClientService clientSrv;
+	private StaffService staffSrv;
 	
 	@GetMapping("")
-	@JsonView(JsonViews.Client.class)
-	public List<Client> getAll() {
-		return clientSrv.getAll();
+	@JsonView(JsonViews.Staff.class)
+	public List<Staff> getAll(){
+		return staffSrv.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	@JsonView(JsonViews.Client.class)
-	public Client getById(@PathVariable("id") Long id) {
-		return clientSrv.getById(id);
+	@JsonView(JsonViews.Staff.class)
+	public Staff getById(@PathVariable("id") Long id) {
+		return staffSrv.getById(id);
 	}
 	
-	@GetMapping("/{id}/reservations")
-	@JsonView(JsonViews.ClientWithReservations.class)
-	public Client getByIdWithReservations(@PathVariable("id") Long id) {
-		return clientSrv.getByIdWithReservations(id);
+
+	@GetMapping("/{id}/evenements")
+	@JsonView(JsonViews.StaffWithEvenements.class)
+	public Staff getByIdWithEvenements(@PathVariable("id") Long id) {
+		return staffSrv.getByIdWithEvenements(id);
 	}
+	
 	
 	@PostMapping("")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	@JsonView(JsonViews.Client.class)
-	public Client create(@Valid @RequestBody Client client,BindingResult br) {
+	@JsonView(JsonViews.Staff.class)
+	public Staff create(@Valid @RequestBody Staff staff,BindingResult br) {
 		if(br.hasErrors()) {
 			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return clientSrv.create(client);
+		return staffSrv.create(staff);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(JsonViews.Client.class)
-	public Client update(@Valid @RequestBody Client client,BindingResult br,@PathVariable Long id) {
-		client.setId(id);
-		return clientSrv.update(client);
+	@JsonView(JsonViews.Staff.class)
+	public Staff update(@Valid @RequestBody Staff staff,BindingResult br,@PathVariable Long id) {
+		staff.setId(id);
+		return staffSrv.update(staff);
 	}
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code=HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
-		clientSrv.delete(id);
+		staffSrv.delete(id);
 	}
+	
 }

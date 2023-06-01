@@ -1,4 +1,5 @@
 <h1>Liste des evenements</h1>
+<div><input [(ngModel)]="filtre" class="form-control" /></div>
 <table class="table">
   <tr>
     <th>id:</th>
@@ -9,15 +10,29 @@
     <th>Heure de début</th>
     <th>Heure de fin</th>
     <th>Type d'evenement</th>
+    <th></th>
+    <th></th>
   </tr>
-  <tr *ngFor="let e of obsEvenements | async">
-    <td>{{ e.id }}</td>
-    <td>{{ e.nom }}</td>
-    <td>{{ e.prix }}</td>
-    <td>{{ e.dateDebut }}</td>
-    <td>{{ e.dateFin }}</td>
-    <td>{{ e.heureDebut }}</td>
-    <td>{{ e.heureFin }}</td>
-    <td>{{ e.typeEvenement }}</td>
+  <tr *ngFor="let evenement of evenementFiltre()">
+    <td>{{ evenement.id }}</td>
+    <td>{{ evenement.nom }}</td>
+    <td>{{ evenement.prix }}</td>
+    <td>{{ evenement.dateDebut }}</td>
+    <td>{{ evenement.dateFin }}</td>
+    <td>{{ evenement.heureDebut }}</td>
+    <td>{{ evenement.heureFin }}</td>
+    <td>{{ evenement.typeEvenement }}</td>
+    <td>
+      <a>editer</a>
+    </td>
+    <td>
+      <button
+        (click)="deleteEvenement(evenement.id!)"
+        class="btn btn-outline-danger"
+      >
+        supprimer
+      </button>
+    </td>
   </tr>
 </table>
+<a class="btn btn-link" routerLink="/evenement/edit">nouvel évènement </a>

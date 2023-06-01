@@ -1,0 +1,43 @@
+<h1>Edition du membre du staff</h1>
+<form (ngSubmit)="save()" #form="ngForm">
+  <div class="form-group">
+    <label for="id">id:</label>
+    <input
+      id="id"
+      name="id"
+      [(ngModel)]="staff.id"
+      class="form-control"
+      placeholder="numero auto"
+      readonly
+    />
+  </div>
+  <div class="form-group">
+    <label for="nom">nom:</label>
+    <input
+      id="nom"
+      name="nom"
+      [(ngModel)]="staff.nom"
+      class="form-control"
+      required
+      #nomCtrl="ngModel"
+    />
+    <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert alert-danger">
+      nom obligatoire
+    </div>
+  </div>
+  <div>
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-outline-primary"
+    >
+      enregistrer
+    </button>
+    <a
+      routerLink="/staff"
+      routerLinkActive="active"
+      class="btn btn-outline-warning"
+      >annuler</a
+    >
+  </div>
+</form>
