@@ -24,14 +24,15 @@ public class SecurityConfig {
 //				.httpBasic(withDefaults())
 //				.build();
 
-		return http.antMatcher("/api/**")
+		return http.antMatcher("**")
 						.csrf().disable()
 						.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 						.and()
 						.authorizeRequests()
+						//manque un truc pour angular
 						.antMatchers(HttpMethod.OPTIONS).permitAll()
-							//manque un truc pour angular
-//							.antMatchers(HttpMethod.POST,"/api/client/inscription").anonymous()
+						.antMatchers(HttpMethod.POST,"/api/client/inscription").anonymous()
+						.antMatchers(HttpMethod.GET,"/api/client/login/**").anonymous()
 //							.antMatchers(HttpMethod.GET,"/api/auth").authenticated()
 //							.antMatchers("/api/commande").hasRole("CLIENT")
 //							.anyRequest().hasAnyRole("ADMIN")

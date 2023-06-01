@@ -19,6 +19,7 @@ class CompteTest {
  
 	
 	@Test
+	@Disabled
 	void test() {
 		compteSrv.createAdmin(new Admin("admin","admin"));
 		compteSrv.createClient(new Client("client","client","nom","prenom","123456",LocalDate.parse("2023-02-02")));

@@ -11,23 +11,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
-import projetFinal.salleDeConcert.entities.jsonviews.JsonViews;
-
 @Entity
 @Table(name="staff")
 public class Staff {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="staff_id")
-	@JsonView(JsonViews.Base.class)
-	private Long id;
+	private int id;
 	@Column(name="staff_name")
-	@JsonView(JsonViews.Base.class)
 	private String nom;
 	@ManyToMany(mappedBy = "staffs")
-	@JsonView(JsonViews.StaffWithEvenements.class)
 	private Set<Evenement> evenements;
 	
 	
@@ -38,10 +31,10 @@ public class Staff {
 	
 		this.nom = nom;
 	}
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNom() {

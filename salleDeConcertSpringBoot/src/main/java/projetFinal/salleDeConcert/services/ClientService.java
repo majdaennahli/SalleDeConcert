@@ -1,6 +1,7 @@
 package projetFinal.salleDeConcert.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,6 +36,11 @@ public class ClientService {
 		}
 	}
 	
+	
+	public boolean checkLogin(String login) {
+		Optional<Client> client =  clientRepo.findByLogin(login);
+		return (client.isEmpty())?false:true;
+	}
 	public Client create(Client client) {
 		checkClient(client);
 		return clientRepo.save(client);

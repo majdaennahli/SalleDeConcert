@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import projetFinal.salleDeConcert.entities.Client;
 import projetFinal.salleDeConcert.entities.jsonviews.JsonViews;
 import projetFinal.salleDeConcert.services.ClientService;
+import projetFinal.salleDeConcert.services.CompteService;
 
 @RestController
 @RequestMapping("/api/client")
@@ -32,11 +33,19 @@ public class ClientRestController {
 
 	@Autowired
 	private ClientService clientSrv;
+	@Autowired
+	private CompteService compteSrv;
 	
 	@GetMapping("")
 	@JsonView(JsonViews.Client.class)
 	public List<Client> getAll() {
 		return clientSrv.getAll();
+	}
+	
+
+	@GetMapping("/login/{login}")
+	public boolean loginAlreadyUse(@PathVariable String login) {
+		return clientSrv.checkLogin(login);
 	}
 	
 	@GetMapping("/{id}")
@@ -51,14 +60,14 @@ public class ClientRestController {
 		return clientSrv.getByIdWithReservations(id);
 	}
 	
-	@PostMapping("")
+	@PostMapping("/inscription")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@JsonView(JsonViews.Client.class)
 	public Client create(@Valid @RequestBody Client client,BindingResult br) {
 		if(br.hasErrors()) {
 			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return clientSrv.create(client);
+		return compteSrv.createClient(client);
 	}
 	
 	@PutMapping("/{id}")

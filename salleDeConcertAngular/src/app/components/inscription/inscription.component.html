@@ -1,0 +1,104 @@
+<h1>inscription</h1>
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <div class="form-group">
+    <label for="login">login:</label>
+    <input id="login" class="form-control" formControlName="login" />
+    <div *ngIf="form.get('login')?.dirty && form.get('login')?.invalid">
+      <span *ngIf="form.get('login')?.hasError('required')"
+        >*login obligatoire</span
+      >
+      <span *ngIf="form.get('login')?.hasError('loginExist')"
+        >*login deja utilisé</span
+      >
+    </div>
+  </div>
+  <ng-container formGroupName="passwordGrp">
+    <div class="form-group">
+      <label for="password">mot de passe:</label>
+      <input
+        id="password"
+        type="password"
+        class="form-control"
+        formControlName="password"
+      />
+      <div
+        *ngIf="
+          form.get('passwordGrp.password')?.dirty &&
+          form.get('passwordGrp.password')?.invalid
+        "
+      >
+        <span *ngIf="form.get('passwordGrp.password')?.hasError('required')">
+          *mot de passe obligatoire
+        </span>
+        <span *ngIf="form.get('passwordGrp.password')?.hasError('pattern')">
+          *doit contenir majuscule, minuscule, chiffre et caracteres speciaux
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">confirmation du mot de passe:</label>
+      <input
+        id="confirmPassword"
+        type="Password"
+        class="form-control"
+        formControlName="confirmPassword"
+      />
+      <span
+        *ngIf="form.get('passwordGrp.confirmPassword')?.hasError('pattern')"
+      >
+        *doit contenir majuscule, minuscule, chiffre et caracteres speciaux
+      </span>
+      <span *ngIf=""> *les deux mots de passe sont différents </span>
+    </div>
+  </ng-container>
+
+  <div class="form-group">
+    <label for="prenom">prenom:</label>
+    <input id="prenom" class="form-control" formControlName="prenom" />
+    <div *ngIf="form.get('prenom')?.dirty && form.get('prenom')?.invalid">
+      prenom obligatoire*
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="nom">nom:</label>
+    <input id="nom" class="form-control" formControlName="nom" />
+    <div *ngIf="form.get('nom')?.dirty && form.get('nom')?.invalid">
+      nom obligatoire*
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="telephone">telephone:</label>
+    <input id="telephone" class="form-control" formControlName="telephone" />
+    <div *ngIf="form.get('telephone')?.dirty && form.get('telephone')?.invalid">
+      telephone obligatoire*
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="dateNaissance">date de naissance:</label>
+    <input
+      id="dateNaissance"
+      type="date"
+      class="form-control"
+      formControlName="dateNaissance"
+    />
+    <div
+      *ngIf="
+        form.get('dateNaissance')?.dirty && form.get('dateNaissance')?.invalid
+      "
+    >
+      date de naissance obligatoire*
+    </div>
+  </div>
+
+  <div>
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      [disabled]="form.invalid"
+    >
+      envoyer</button
+    ><a routerLink="/home" routerLinkActive="active" class="btn btn-link"
+      >annuler</a
+    >
+  </div>
+</form>

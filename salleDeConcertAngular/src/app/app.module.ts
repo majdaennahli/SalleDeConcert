@@ -11,12 +11,7 @@ import { AuthentificationInterceptor } from './interceptors/authentification.int
 import { MenuComponent } from './components/menu/menu.component';
 import { ArtisteListComponent } from './components/artiste/artiste-list/artiste-list.component';
 import { EvenementListComponent } from './components/evenement/evenement-list/evenement-list.component';
-import { StaffListComponent } from './components/staff/staff-list/staff-list.component';
-import { StaffEditComponent } from './components/staff/staff-edit/staff-edit.component';
-import { ClientListComponent } from './components/customer/client-list/client-list.component';
-import { LocalEditComponent } from './components/local/local-edit/local-edit.component';
-import { LocalListComponent } from './components/local/local-list/local-list.component';
-import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,12 +20,7 @@ import { EvenementEditComponent } from './components/evenement/evenement-edit/ev
     MenuComponent,
     ArtisteListComponent,
     EvenementListComponent,
-    StaffListComponent,
-    StaffEditComponent,
-    ClientListComponent,
-    LocalEditComponent,
-    LocalListComponent,
-    EvenementEditComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,

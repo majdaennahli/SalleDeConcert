@@ -11,10 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
-import projetFinal.salleDeConcert.entities.jsonviews.JsonViews;
-
 
 @Entity
 @Table(name="localisation")
@@ -22,22 +18,16 @@ public class Local {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="local_id")
-	@JsonView(JsonViews.Base.class)
 	private Long id;
 	@Column(name="local_name")
-	@JsonView(JsonViews.Base.class)
 	private String nom;
 	@OneToMany(mappedBy = "local")
-	@JsonView(JsonViews.LocalWithEvenements.class)
 	private Set<Evenement> evenements;
 	@Column(name="local_places_pmr")
-	@JsonView(JsonViews.Base.class)
 	private int placesPMR;
 	@Column(name="local_places_assises")
-	@JsonView(JsonViews.Base.class)
 	private int placesAssises;
 	@Column(name="local_places_fosse")
-	@JsonView(JsonViews.Base.class)
 	private int placesFosse;
 	public Local() {
 	

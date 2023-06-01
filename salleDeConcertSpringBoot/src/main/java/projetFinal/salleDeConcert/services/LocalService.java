@@ -8,9 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import projetFinal.salleDeConcert.entities.Artiste;
 import projetFinal.salleDeConcert.entities.Local;
-import projetFinal.salleDeConcert.exceptions.ArtisteException;
 import projetFinal.salleDeConcert.exceptions.LocalException;
 import projetFinal.salleDeConcert.repositories.LocalRepository;
 
@@ -56,12 +54,7 @@ public class LocalService {
 			throw new LocalException("id inconnu");
 		});
 	}
-	public Local getByIdWithEvenements(Long id) {
-		checkId(id);
-		return localRepo.findByIdFetchEvenements(id).orElseThrow(() -> {
-			throw new LocalException("id inconnu");
-		});
-	}
+	
 	
 	public List<Local> getAll() {
 		return localRepo.findAll();
