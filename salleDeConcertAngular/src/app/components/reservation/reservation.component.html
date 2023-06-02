@@ -10,7 +10,7 @@
     />
   </div>
   <div class="form-group">
-    <label for="nom">nom:</label>
+    <label for="nom">nom evenement:</label>
     <input id="nom" class="form-control" [(ngModel)]="evenement.nom" readonly />
   </div>
   <div class="form-group">
@@ -25,20 +25,32 @@
   </div>
   <div class="form-group">
     <label for="dateDebut">Début:</label>
-    <input id="dateDebut" type="date" />
+    <input id="dateDebut" type="date" readonly />
     <!-- <label for="heureDebut">heure de début:</label> -->
-    <input id="heureDebut" type="time" />
+    <input id="heureDebut" type="time" readonly />
   </div>
   <div class="form-group">
     <label for="dateFin">Fin:</label>
-    <input id="dateFin" type="date" />
+    <input id="dateFin" type="date" readonly />
     <!-- <label for="heureFin">heure de fin:</label> -->
-    <input id="heureFin" type="time" />
+    <input id="heureFin" type="time" readonly />
   </div>
-
   <div class="form-group">
-    <button (click)="save()" class="btn btn-outline-primary">
-      enregistrer
+    <label for="local">local:</label>
+    <div
+      class="form-control"
+      id="local"
+      [(ngModel)]="evenement.local"
+      [compareWith]="compareById"
+    >
+      <option [ngValue]="local" *ngFor="let local of obsLocals | async">
+        {{ local.nom }}
+      </option>
+    </div>
+  </div>
+  <div class="form-group">
+    <button (click)="reserver()" class="btn btn-outline-primary">
+      Réserver
     </button>
     <a
       routerLink="/client/home"
