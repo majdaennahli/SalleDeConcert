@@ -11,32 +11,32 @@ export class ArtisteService {
 
   public getArtistes(): Observable<Artiste[]> {
     return this.httpClient.get<Artiste[]>(
-      'http://localhost:8080/salledeconcert/api/artiste'
+      'http://localhost:8080/salleDeConcert/api/artiste'
     );
   }
 
   public deleteById(id: number): Observable<void> {
     return this.httpClient.delete<void>(
-      `http://localhost:8080/salledeconcert/api/artiste/${id}`
+      `http://localhost:8080/salleDeConcert/api/artiste/${id}`
     );
   }
 
   public create(artiste: Artiste): Observable<Artiste> {
     return this.httpClient.post<Artiste>(
-      'http://localhost:8080/salledeconcert/api/artiste',
+      'http://localhost:8080/salleDeConcert/api/artiste',
       artiste
     );
   }
 
   public getById(id: number): Observable<Artiste> {
     return this.httpClient.get<Artiste>(
-      `http://localhost:8080/salledeconcert/api/artiste/${id}`
+      `http://localhost:8080/salleDeConcert/api/artiste/${id}`
     );
   }
 
   public update(artiste: Artiste): Observable<Artiste> {
     return this.httpClient.put<Artiste>(
-      `http://localhost:8080/salledeconcert/api/artiste/${artiste.id}`,
+      `http://localhost:8080/salleDeConcert/api/artiste/${artiste.id}`,
       artiste
     );
   }

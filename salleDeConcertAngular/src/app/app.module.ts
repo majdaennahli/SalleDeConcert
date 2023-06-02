@@ -20,7 +20,9 @@ import { ArtisteListComponent } from './components/artiste/artiste-list/artiste-
 import { ArtisteEditComponent } from './components/artiste/artiste-edit/artiste-edit.component';
 import { ClientEditComponent } from './components/customer/client-edit/client-edit.component';
 import { ClientHomeComponent } from './components/customer/client-home/client-home.component';
-import { ReservationComponent } from './reservation/reservation.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
+import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,8 @@ import { ReservationComponent } from './reservation/reservation.component';
     ArtisteEditComponent,
     ClientEditComponent,
     ClientHomeComponent,
+    AdminHomeComponent,
+    EvenementEditComponent,
     ReservationComponent,
   ],
   imports: [
