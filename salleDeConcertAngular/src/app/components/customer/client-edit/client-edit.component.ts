@@ -27,20 +27,10 @@ export class ClientEditComponent {
       }
     });
   }
-  get nom() {
-    if (sessionStorage.getItem('compte')) {
-      return JSON.parse(sessionStorage.getItem('compte')!).nom;
-    }
-  }
+
   save() {
-    if (this.client.id) {
-      this.clientSrv.update(this.client).subscribe((res) => {
-        this.router.navigateByUrl('/customer/home');
-      });
-    } else {
-      this.clientSrv.create(this.client).subscribe((res) => {
-        this.router.navigateByUrl('/customer/home');
-      });
-    }
+    this.clientSrv.update(this.client).subscribe((res) => {
+      this.router.navigateByUrl('/client/home');
+    });
   }
 }

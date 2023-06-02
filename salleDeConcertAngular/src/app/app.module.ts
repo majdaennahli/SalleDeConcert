@@ -19,9 +19,11 @@ import { ArtisteListComponent } from './components/artiste/artiste-list/artiste-
 import { ArtisteEditComponent } from './components/artiste/artiste-edit/artiste-edit.component';
 import { ClientEditComponent } from './components/customer/client-edit/client-edit.component';
 import { ClientHomeComponent } from './components/customer/client-home/client-home.component';
-import { ReservationComponent } from './reservation/reservation.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
 import { NgModule } from '@angular/core';
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { AffichageEvenementComponent } from './components/evenement/affichage-evenement/affichage-evenement.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +41,11 @@ import { NgModule } from '@angular/core';
     ArtisteEditComponent,
     ClientEditComponent,
     ClientHomeComponent,
+    AdminHomeComponent,
+    EvenementEditComponent,
     ReservationComponent,
     EvenementEditComponent,
+    AffichageEvenementComponent,
   ],
   imports: [
     BrowserModule,
