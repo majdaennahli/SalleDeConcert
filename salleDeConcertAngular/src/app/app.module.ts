@@ -22,7 +22,7 @@ import { ClientEditComponent } from './components/customer/client-edit/client-ed
 import { ClientHomeComponent } from './components/customer/client-home/client-home.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
-import { ReservationComponent } from './components/reservation/reservation/reservation.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
