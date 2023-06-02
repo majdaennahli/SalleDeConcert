@@ -12,8 +12,8 @@
     <th>heure de début</th>
     <th>heure de fin</th>
     <th>Type d'evenement</th>
-    <th>local</th>
-    <th>staff</th>
+    <th>locaux</th>
+    <th>staffs</th>
     <th>artistes</th>
     <th></th>
     <th></th>
@@ -27,9 +27,24 @@
     <td>{{ evenement.heureDebut }}</td>
     <td>{{ evenement.heureFin }}</td>
     <td>{{ evenement.typeEvenement }}</td>
-    <td>{{ evenement.local?.nom }}</td>
-    <td>{{ evenement.staff?.nom }}</td>
-    <td>{{ evenement.artiste?.nomArtiste }}</td>
+    <td>
+      <ul *ngIf="evenement.locaux">
+        <li *ngFor="let local of evenement.locaux">{{ local?.nom }}</li>
+      </ul>
+    </td>
+    <td>
+      <ul *ngIf="evenement.staffs">
+        <li *ngFor="let staff of evenement.staffs">{{ staff?.nom }}</li>
+      </ul>
+    </td>
+    <td>
+      <ul *ngIf="evenement.artistes">
+        <li *ngFor="let artiste of evenement.artistes">
+          {{ artiste?.nomArtiste }}
+        </li>
+      </ul>
+    </td>
+
     <td>
       <a
         class="btn btn-outline-primary"

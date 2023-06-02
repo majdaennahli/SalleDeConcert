@@ -95,12 +95,12 @@
       />
     </div>
     <div class="form-group">
-      <label for="local">local</label>
+      <label for="local">Local</label>
       <select
         class="form-control"
         id="local"
-        [(ngModel)]="evenement.local"
-        [compareWith]="compareByIdLocal"
+        [(ngModel)]="evenement.locaux"
+        multiple
       >
         <option [ngValue]="local" *ngFor="let local of obsLocaux | async">
           {{ local.nom }} {{ local.placesPMR }} {{ local.placesAssises }}
@@ -113,8 +113,8 @@
       <select
         class="form-control"
         id="artiste"
-        [(ngModel)]="evenement.artiste"
-        [compareWith]="compareByIdArtiste"
+        [(ngModel)]="evenement.artistes"
+        multiple
       >
         <option [ngValue]="artiste" *ngFor="let artiste of obsArtistes | async">
           {{ artiste.nomArtiste }} {{ artiste.nationalite }}
@@ -142,8 +142,8 @@
       <select
         class="form-control"
         id="staff"
-        [(ngModel)]="evenement.staff"
-        [compareWith]="compareByIdStaff"
+        [(ngModel)]="evenement.staffs"
+        multiple
       >
         <option [ngValue]="staff" *ngFor="let staff of obsStaffs | async">
           {{ staff.nom }}

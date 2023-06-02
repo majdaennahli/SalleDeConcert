@@ -1,7 +1,5 @@
-import { Time } from '@angular/common';
-import { Local } from './local';
-import { Reservation } from './reservation';
 import { Artiste } from './artiste';
+import { Local } from './local';
 import { Staff } from './staff';
 
 export class Evenement {
@@ -9,14 +7,13 @@ export class Evenement {
     public nom?: string,
     public prix?: number,
     public dateDebut?: Date,
-    public heureDebut?: Time,
     public dateFin?: Date,
-    public heureFin?: Time,
+    public heureDebut?: string,
+    public heureFin?: string,
     public typeEvenement?: string,
-    public local?: Local,
-    public reservation?: Reservation,
-    public artiste?: Artiste,
-    public staff?: Staff,
+    public locaux?: Local[],
+    public staffs?: Staff[],
+    public artistes?: Artiste[],
     public id?: number
   ) {}
 }
