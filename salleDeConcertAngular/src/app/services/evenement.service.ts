@@ -12,7 +12,7 @@ export class EvenementService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getAll(): Observable<Evenement[]> {
+  public getEvenement(): Observable<Evenement[]> {
     return this.httpClient.get<Evenement[]>(EvenementService.URL);
   }
 

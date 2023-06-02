@@ -21,6 +21,7 @@ import { ArtisteEditComponent } from './components/artiste/artiste-edit/artiste-
 import { ClientEditComponent } from './components/customer/client-edit/client-edit.component';
 import { ClientHomeComponent } from './components/customer/client-home/client-home.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { ReservationComponent } from './reservation/reservation.component';
     ClientEditComponent,
     ClientHomeComponent,
     ReservationComponent,
+    EvenementEditComponent,
   ],
   imports: [
     BrowserModule,

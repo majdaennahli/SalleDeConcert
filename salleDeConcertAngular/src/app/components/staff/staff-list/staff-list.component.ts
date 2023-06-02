@@ -23,7 +23,7 @@ export class StaffListComponent implements OnInit {
   }
 
   listStaffs() {
-    this.staffSrv.getAll().subscribe((resultat) => {
+    this.staffSrv.getStaffs().subscribe((resultat) => {
       this.staffs = resultat;
     });
   }

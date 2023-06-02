@@ -11,7 +11,7 @@ export class StaffService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getAll(): Observable<Staff[]> {
+  public getStaffs(): Observable<Staff[]> {
     return this.httpClient.get<Staff[]>(StaffService.URL);
   }
 

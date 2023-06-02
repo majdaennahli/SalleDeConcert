@@ -11,7 +11,7 @@ export class LocalService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getAll(): Observable<Local[]> {
+  public getLocaux(): Observable<Local[]> {
     return this.httpClient.get<Local[]>(LocalService.URL);
   }
 

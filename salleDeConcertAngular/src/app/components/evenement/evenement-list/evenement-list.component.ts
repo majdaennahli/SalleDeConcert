@@ -11,19 +11,28 @@ import { EvenementService } from 'src/app/services/evenement.service';
   styleUrls: ['./evenement-list.component.css'],
 })
 export class EvenementListComponent implements OnInit {
-  obsEvenements!: Observable<Evenement[]>;
+  evenements!: Evenement[];
+  filtre = '';
 
-  constructor(
-    private evenementSrv: EvenementService,
-    private authSrv: AuthentificationService
-  ) {}
+  constructor(private evenementSrv: EvenementService) {}
+
+  evenementFiltre() {
+    return this.evenements.filter((e) => e.nom?.indexOf(this.filtre) != -1);
+  }
 
   ngOnInit(): void {
-    this.obsEvenements = this.evenementSrv.getAll();
+    this.listEvenements();
   }
-  delete(id: number) {
+
+  listEvenements() {
+    this.evenementSrv.getEvenement().subscribe((resultat) => {
+      this.evenements = resultat;
+    });
+  }
+
+  deleteEvenement(id: number) {
     this.evenementSrv.delete(id).subscribe(() => {
-      this.obsEvenements = this.evenementSrv.getAll();
+      this.listEvenements();
     });
   }
 }

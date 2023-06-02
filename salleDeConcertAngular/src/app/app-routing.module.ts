@@ -13,11 +13,14 @@ import { ArtisteListComponent } from './components/artiste/artiste-list/artiste-
 import { ArtisteEditComponent } from './components/artiste/artiste-edit/artiste-edit.component';
 import { ClientHomeComponent } from './components/customer/client-home/client-home.component';
 import { ClientEditComponent } from './components/customer/client-edit/client-edit.component';
+import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'evenement', component: EvenementListComponent },
+  { path: 'evenement/edit', component: EvenementEditComponent },
+  { path: 'evenement/edit/:id', component: EvenementEditComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'staff', component: StaffListComponent },
   { path: 'staff/edit', component: StaffEditComponent },

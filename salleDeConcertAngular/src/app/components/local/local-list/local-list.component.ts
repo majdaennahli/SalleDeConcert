@@ -22,7 +22,7 @@ export class LocalListComponent implements OnInit {
   }
 
   listLocaux() {
-    this.localSrv.getAll().subscribe((resultat) => {
+    this.localSrv.getLocaux().subscribe((resultat) => {
       this.locaux = resultat;
     });
   }
