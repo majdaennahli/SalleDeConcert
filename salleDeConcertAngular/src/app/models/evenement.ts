@@ -14,9 +14,9 @@ export class Evenement {
     public heureFin?: Time,
     public typeEvenement?: string,
     public local?: Local,
-    public reservation?: Reservation,
-    public artiste?: Artiste,
-    public staff?: Staff,
+    public reservations?: Reservation[],
+    public artistes?: Artiste[],
+    public staffs?: Staff[],
     public id?: number
   ) {}
 }

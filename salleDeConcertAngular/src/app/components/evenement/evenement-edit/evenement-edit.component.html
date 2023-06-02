@@ -113,10 +113,10 @@
       <select
         class="form-control"
         id="artiste"
-        [(ngModel)]="evenement.artiste"
+        [(ngModel)]="evenement.artistes"
         [compareWith]="compareByIdArtiste"
       >
-        <option [ngValue]="artiste" *ngFor="let artiste of obsArtistes | async">
+        <option *ngFor="let artiste of obsArtistes | async">
           {{ artiste.nomArtiste }} {{ artiste.nationalite }}
         </option>
       </select>
@@ -142,7 +142,7 @@
       <select
         class="form-control"
         id="staff"
-        [(ngModel)]="evenement.staff"
+        [(ngModel)]="evenement.staffs"
         [compareWith]="compareByIdStaff"
       >
         <option [ngValue]="staff" *ngFor="let staff of obsStaffs | async">

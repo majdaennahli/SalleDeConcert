@@ -67,7 +67,7 @@ public class Evenement {
 	private LocalTime heureFin;
 	@ManyToOne
 	@JoinColumn(name="event_local_id",foreignKey = @ForeignKey(name="event_local_id_fk"))
-	@JsonView(JsonViews.EvenementWithLocal.class)
+	@JsonView(JsonViews.Base.class)
 	private Local local;
 	@ManyToMany
 	@JoinTable(
