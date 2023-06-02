@@ -20,8 +20,14 @@ import { ArtisteListComponent } from './components/artiste/artiste-list/artiste-
 import { ArtisteEditComponent } from './components/artiste/artiste-edit/artiste-edit.component';
 import { ClientEditComponent } from './components/customer/client-edit/client-edit.component';
 import { ClientHomeComponent } from './components/customer/client-home/client-home.component';
+<<<<<<< HEAD
 import { ReservationComponent } from './reservation/reservation.component';
 import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
+=======
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
+import { ReservationComponent } from './components/reservation/reservation/reservation.component';
+>>>>>>> ab2ed11acd12135ba790f7dffbd7e8e496e266ae
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +45,8 @@ import { EvenementEditComponent } from './components/evenement/evenement-edit/ev
     ArtisteEditComponent,
     ClientEditComponent,
     ClientHomeComponent,
+    AdminHomeComponent,
+    EvenementEditComponent,
     ReservationComponent,
     EvenementEditComponent,
   ],

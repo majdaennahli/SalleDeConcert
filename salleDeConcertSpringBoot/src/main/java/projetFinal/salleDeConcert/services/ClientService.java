@@ -53,7 +53,7 @@ public class ClientService {
 		clientEnBase.setPrenom(client.getPrenom());
 		clientEnBase.setNaissance(client.getNaissance());
 		clientEnBase.setTelephone(client.getTelephone());
-		clientEnBase.setPassword(client.getPassword());
+		clientEnBase.setPassword(clientEnBase.getPassword());
 		clientEnBase.setLogin(client.getLogin());
 		return clientRepo.save(clientEnBase);
 	}

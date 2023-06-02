@@ -10,8 +10,6 @@ import { ArtisteService } from 'src/app/services/artiste.service';
 })
 export class ArtisteEditComponent {
   artiste!: Artiste;
-  prenomCtrl: any;
-  nomArtisteCtrl: any;
 
   constructor(
     private artisteSrv: ArtisteService,
@@ -20,6 +18,7 @@ export class ArtisteEditComponent {
   ) {}
 
   ngOnInit(): void {
+    this.artiste = new Artiste();
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
         this.artisteSrv.getById(params['id']).subscribe((res) => {

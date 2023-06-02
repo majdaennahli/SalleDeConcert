@@ -27,7 +27,7 @@ public abstract class Compte implements UserDetails{
 	@NotBlank
 	@JsonView(JsonViews.Base.class)
 	protected String login;
-	@NotBlank
+
 	protected String password;
 	
 

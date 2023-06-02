@@ -31,4 +31,7 @@ export class AuthentificationService {
     }
     return false;
   }
+  public isLogged(): boolean {
+    return sessionStorage.getItem('token') != null;
+  }
 }

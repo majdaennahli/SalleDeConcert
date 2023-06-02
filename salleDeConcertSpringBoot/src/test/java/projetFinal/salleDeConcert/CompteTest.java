@@ -19,7 +19,11 @@ class CompteTest {
  
 	
 	@Test
+<<<<<<< HEAD
 	
+=======
+//	@Disabled
+>>>>>>> ab2ed11acd12135ba790f7dffbd7e8e496e266ae
 	void test() {
 		compteSrv.createAdmin(new Admin("admin","admin"));
 		compteSrv.createClient(new Client("client","client","nom","prenom","123456",LocalDate.parse("2023-02-02")));
