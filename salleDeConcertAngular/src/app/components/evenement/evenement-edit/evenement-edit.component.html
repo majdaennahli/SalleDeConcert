@@ -99,22 +99,24 @@
       <select
         class="form-control"
         id="local"
-        [(ngModel)]="evenement.local"
-        [compareWith]="compareByIdLocal"
+        [(ngModel)]="evenement.locaux"
+        multiple
       >
         <option [ngValue]="local" *ngFor="let local of obsLocaux | async">
-          {{ local.nom }} {{ local.placesPMR }} {{ local.placesAssises }}
+          {{ local.nom }} {{ local.nom }} {{ local.placesPMR }}
+          {{ local.placesAssises }}
           {{ local.placesFosse }}
         </option>
       </select>
     </div>
+
     <div class="form-group">
       <label for="artiste">artiste</label>
       <select
         class="form-control"
         id="artiste"
         [(ngModel)]="evenement.artistes"
-        [compareWith]="compareByIdArtiste"
+        multiple
       >
         <option *ngFor="let artiste of obsArtistes | async">
           {{ artiste.nomArtiste }} {{ artiste.nationalite }}
@@ -143,7 +145,7 @@
         class="form-control"
         id="staff"
         [(ngModel)]="evenement.staffs"
-        [compareWith]="compareByIdStaff"
+        multiple
       >
         <option [ngValue]="staff" *ngFor="let staff of obsStaffs | async">
           {{ staff.nom }}

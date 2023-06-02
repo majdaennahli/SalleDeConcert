@@ -1,5 +1,4 @@
 import { StaffEditComponent } from './components/staff/staff-edit/staff-edit.component';
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,9 +21,9 @@ import { ClientEditComponent } from './components/customer/client-edit/client-ed
 import { ClientHomeComponent } from './components/customer/client-home/client-home.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
+import { NgModule } from '@angular/core';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { AffichageEvenementComponent } from './components/evenement/affichage-evenement/affichage-evenement.component';
-
 @NgModule({
   declarations: [
     AppComponent,
