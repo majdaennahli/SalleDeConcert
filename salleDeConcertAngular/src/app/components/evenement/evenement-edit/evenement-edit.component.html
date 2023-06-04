@@ -1,22 +1,25 @@
-<h1>Edition de l'Evenement</h1>
+<div class="title-container">
+  <h1>Edition de l'Evenement</h1>
+</div>
 <form (ngSubmit)="save()" #form="ngForm">
   <div class="form-group">
-    <label for="id">id:</label>
+    <label for="id">Id (Lecture seule):</label>
     <input
       id="id"
       name="id"
       [(ngModel)]="evenement.id"
-      class="form-control"
+      class="form-control custom-disabled-input"
       placeholder="numero auto"
       readonly
+      disabled
     />
     <div class="form-group">
-      <label for="nom">nom:</label>
+      <label for="nom">Nom:</label>
       <input
         id="nom"
         name="nom"
         [(ngModel)]="evenement.nom"
-        class="form-control"
+        class="form-control custom-input"
         required
         #nomCtrl="ngModel"
       />
@@ -25,146 +28,131 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="prix">prix:</label>
+      <label for="prix">Prix (€):</label>
       <input
         id="prix"
         name="prix"
         [(ngModel)]="evenement.prix"
-        class="form-control"
+        class="form-control custom-input"
         required
         #nomCtrl="ngModel"
       />
     </div>
     <div class="form-group">
-      <label for="dateDebut">dateDebut:</label>
+      <label for="dateDebut">Date de début:</label>
       <input
         type="date"
         id="dateDebut"
         name="dateDebut"
         [(ngModel)]="evenement.dateDebut"
-        class="form-control"
+        class="form-control custom-input"
         required
         #nomCtrl="ngModel"
       />
     </div>
     <div class="form-group">
-      <label for="dateFin">dateFin:</label>
+      <label for="dateFin">Date de fin:</label>
       <input
         type="date"
         id="dateFin"
         name="dateFin"
         [(ngModel)]="evenement.dateFin"
-        class="form-control"
+        class="form-control custom-input"
         required
         #nomCtrl="ngModel"
       />
     </div>
     <div class="form-group">
-      <label for="heureDebut">heureDebut:</label>
+      <label for="heureDebut">Heure de début:</label>
       <input
         type="time"
         id="heureDebut"
         name="heureDebut"
         [(ngModel)]="evenement.heureDebut"
-        class="form-control"
+        class="form-control custom-input"
         required
         #nomCtrl="ngModel"
       />
     </div>
     <div class="form-group">
-      <label for="heureFin">heureFin:</label>
+      <label for="heureFin">Heure de fin:</label>
       <input
         type="time"
         id="heureFin"
         name="heureFin"
         [(ngModel)]="evenement.heureFin"
-        class="form-control"
+        class="form-control custom-input"
         required
         #nomCtrl="ngModel"
       />
     </div>
     <div class="form-group">
-      <label for="typeEvenement">type d'evenement':</label>
+      <label for="typeEvenement">Type d'évènement':</label>
       <input
         id="typeEvenement"
         name="typeEvenement"
         [(ngModel)]="evenement.typeEvenement"
-        class="form-control"
+        class="form-control custom-input"
         required
         #nomCtrl="ngModel"
       />
     </div>
     <div class="form-group">
-      <label for="local">local</label>
+      <label for="local">Local:</label>
       <select
-        class="form-control"
         id="local"
-        [(ngModel)]="evenement.locaux"
-        multiple
+        name="local"
+        class="form-control custom-input"
+        [(ngModel)]="evenement.local"
+        [compareWith]="compareByIdLocal"
       >
         <option [ngValue]="local" *ngFor="let local of obsLocaux | async">
-          {{ local.nom }} {{ local.nom }} {{ local.placesPMR }}
-          {{ local.placesAssises }}
-          {{ local.placesFosse }}
+          {{ local.nom }}
         </option>
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="artiste">artiste</label>
-      <select
-        class="form-control"
-        id="artiste"
-        [(ngModel)]="evenement.artistes"
-        multiple
-      >
-        <option *ngFor="let artiste of obsArtistes | async">
-          {{ artiste.nomArtiste }} {{ artiste.nationalite }}
-        </option>
-      </select>
+    <div class="artiste-staffs-container">
+      <div class="form-group custom-checkbox">
+        <ul>
+          <label for="artistes">Artistes:</label>
+          <li>
+            <div *ngFor="let artiste of obsArtistes | async; let i = index">
+              <input
+                type="checkbox"
+                name="artistes"
+                [(ngModel)]="evenement.artistes"
+                id="artiste"
+              />
+              {{ artiste.nomArtiste }}
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-group custom-checkbox">
+        <ul>
+          <label for="staffs">Staffs:</label>
+          <li>
+            <div *ngFor="let staff of obsStaffs | async; let i = index">
+              <input
+                type="checkbox"
+                name="staffs"
+                [(ngModel)]="evenement.staffs"
+                id="staff"
+              />
+              {{ staff.nom }}
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <!-- <div class="form-group">
-    <label for="reservation">reservation</label>
-    <select
-      class="form-control"
-      id="artiste"
-      [(ngModel)]="evenement.reservation"
-      [compareWith]="compareByIdreservatione"
-    >
-      <option
-        [ngValue]="reservation"
-        *ngFor="let reservation of obsReservations | async"
-      >
-        {{ reservation.prix }} {{ reservation.dateReserv }}
-      </option>
-    </select>
-  </div> -->
-    <div class="form-group">
-      <label for="staff">staff</label>
-      <select
-        class="form-control"
-        id="staff"
-        [(ngModel)]="evenement.staffs"
-        multiple
-      >
-        <option [ngValue]="staff" *ngFor="let staff of obsStaffs | async">
-          {{ staff.nom }}
-        </option>
-      </select>
-    </div>
-    <div>
+    <div class="button-container">
       <div class="form-group">
-        <button
-          type="submit"
-          [disabled]="form.invalid"
-          class="btn btn-outline-primary"
-        >
+        <button type="submit" [disabled]="form.invalid" class="cta">
           enregistrer
         </button>
-        <a
-          routerLink="/evenement"
-          routerLinkActive="active"
-          class="btn btn-outline-warning"
+        <a routerLink="/evenement" routerLinkActive="active" class="cta2"
           >annuler</a
         >
       </div>

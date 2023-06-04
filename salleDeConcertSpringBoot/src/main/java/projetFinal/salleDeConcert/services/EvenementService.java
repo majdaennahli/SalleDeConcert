@@ -47,9 +47,9 @@ public class EvenementService {
 		if (evenement.getTypeEvenement() == null) {
 			throw new EvenementException("type d'évenement à renseigner");
 		}
-		if (evenement.getStaffs() == null ||evenement.getStaffs().isEmpty() ) {
-			throw new EvenementException("staffs à renseigner");
-		}
+//		if (evenement.getStaffs() == null ||evenement.getStaffs().isEmpty() ) {
+//			throw new EvenementException("staffs à renseigner");
+//		}
 	}
 
 	private void checkId(Long id) {
@@ -91,7 +91,7 @@ public class EvenementService {
 	}
 	public void delete(Long id) {
 		Evenement evenementEnBase = getById(id);
-		reservationRepo.deleteById(evenementEnBase.getId());
+		evenementRepo.deleteById(evenementEnBase.getId());
 	}
 	
 	public List<Evenement> getAll() {

@@ -1,4 +1,6 @@
-<h1>Edition du membre du artiste</h1>
+<div class="title-container">
+  <h1>Edition de l'artiste</h1>
+</div>
 <form (ngSubmit)="save()" #form="ngForm">
   <div class="form-group">
     <label for="id">id:</label>
@@ -6,9 +8,10 @@
       id="id"
       name="id"
       [(ngModel)]="artiste.id"
-      class="form-control"
+      class="form-control custom-disabled-input"
       placeholder="numero auto"
       readonly
+      disabled
     />
   </div>
   <div class="form-group">
@@ -17,7 +20,7 @@
       id="nomArtiste"
       name="nomArtiste"
       [(ngModel)]="artiste.nomArtiste"
-      class="form-control"
+      class="form-control custom-input"
       required
       #nomArtisteCtrl="ngModel"
     />
@@ -34,7 +37,7 @@
       id="nationalite"
       name="nationalite"
       [(ngModel)]="artiste.nationalite"
-      class="form-control"
+      class="form-control custom-input"
       required
       #nationaliteCtrl="ngModel"
     />
@@ -45,19 +48,14 @@
       nationalite obligatoire
     </div>
   </div>
-  <div>
-    <button
-      type="submit"
-      [disabled]="form.invalid"
-      class="btn btn-outline-primary"
-    >
-      enregistrer
-    </button>
-    <a
-      routerLink="/artiste"
-      routerLinkActive="active"
-      class="btn btn-outline-warning"
-      >annuler</a
-    >
+  <div class="button-container">
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="cta">
+        enregistrer
+      </button>
+      <a routerLink="/artiste" routerLinkActive="active" class="cta2"
+        >annuler</a
+      >
+    </div>
   </div>
 </form>

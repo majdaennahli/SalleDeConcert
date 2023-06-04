@@ -1,20 +1,30 @@
 .portfolio-section-photos {
-  background-color: white;
+  background-color: rgb(58, 60, 107);
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
-/* .portfolio-section-photos h2 {
+.portfolio-section-photos h2 {
   color: #242424;
   margin-bottom: 80px;
-} */
+}
 
 .grid-paysages {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 400px 400px 400px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 500px 500px 500px;
   gap: 15px;
 }
 
-.grid-paysages img {
+.grid-portraits {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 300px 300px;
+  gap: 15px;
+}
+
+.grid-paysages img,
+.grid-portraits img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -41,11 +51,4 @@
 
 .lien-conteneur-photo:hover .photo-hover {
   display: flex;
-}
-
-.contenu-hover {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: space-evenly;
 }

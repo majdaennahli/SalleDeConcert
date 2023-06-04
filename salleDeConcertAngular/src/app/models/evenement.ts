@@ -11,7 +11,7 @@ export class Evenement {
     public heureDebut?: string,
     public heureFin?: string,
     public typeEvenement?: string,
-    public locaux?: Local[],
+    public local?: Local,
     public staffs?: Staff[],
     public imageURL?: string,
     public artistes?: Artiste[],

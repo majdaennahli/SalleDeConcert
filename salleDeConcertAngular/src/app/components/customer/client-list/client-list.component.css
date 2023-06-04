@@ -1,0 +1,104 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #65cd10;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+body {
+  background-color: rgb(58, 60, 107);
+}
+
+h1 {
+  font-size: 28px;
+  margin: 0;
+  padding: 20px;
+  color: rgb(115, 123, 233);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  background-color: rgb(75, 48, 211);
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  border: 1px solid rgb(6, 10, 25);
+  text-align: center;
+}
+
+table td {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+table th {
+  background-color: rgb(139, 139, 209);
+  font-weight: bold;
+  color: white;
+}
+
+input.form-control {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline-primary {
+  color: #fdfdfb;
+  border: 1px solid #e4ded4;
+  background-color: #ffb700;
+}
+
+.btn-outline-primary:hover {
+  background-color: #eff2f5;
+  color: white;
+}
+
+.btn-outline-danger {
+  color: #ded3d4;
+  border: 1px solid #d9d2d3;
+  background-color: white;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dacdce;
+  color: white;
+}
+
+.btn-link {
+  font-size: 14px;
+  background-color: rgb(183, 90, 23);
+  color: black;
+  text-decoration: underline;
+}

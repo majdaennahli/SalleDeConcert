@@ -1,1 +1,15 @@
-<p>evenement-details works!</p>
+<span *ngIf="evenement">
+  <h2>{{ evenement.nom }}</h2>
+  <p>{{ evenement.typeEvenement }}</p>
+  <p>{{ evenement.prix }}</p>
+  <p>{{ evenement.dateDebut }}</p>
+  <p>{{ evenement.dateFin }}</p>
+  <p>{{ evenement.heureDebut }}</p>
+  <p>{{ evenement.heureFin }}</p>
+  <p>{{ evenement.local?.nom }}</p>
+  <p>{{ evenement.artistes }}</p>
+</span>
+
+<span *ngIf="evenement">
+  <img src="{{ evenement.imageURL }}" alt="{{ evenement.nom }}" />
+</span>

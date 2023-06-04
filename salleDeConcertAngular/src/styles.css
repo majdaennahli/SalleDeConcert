@@ -1,3 +1,49 @@
 app-root {
   font-family: "Manrope", sans-serif;
 }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  background-color: rgb(58, 60, 107);
+}
+.duck-logo {
+  width: 9em;
+  height: 100%;
+}
+footer {
+  background-color: rgb(17, 17, 30);
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a img {
+  width: 50px;
+  height: 50px;
+}
+#conteneur-page {
+  position: relative;
+  background-color: rgb(58, 60, 107);
+  margin-right: 0;
+}
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.© {
+  color: rgb(114, 211, 76);
+}
