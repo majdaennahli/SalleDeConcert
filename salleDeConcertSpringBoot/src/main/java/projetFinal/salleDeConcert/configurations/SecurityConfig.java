@@ -33,6 +33,7 @@ public class SecurityConfig {
 						.antMatchers(HttpMethod.OPTIONS).permitAll()
 						.antMatchers(HttpMethod.POST,"/api/client/inscription").anonymous()
 						.antMatchers(HttpMethod.GET,"/api/client/login/**").anonymous()
+						.antMatchers(HttpMethod.GET,"/api/evenement/**").permitAll()
 //							.antMatchers(HttpMethod.GET,"/api/auth").authenticated()
 //							.antMatchers("/api/commande").hasRole("CLIENT")
 //							.anyRequest().hasAnyRole("ADMIN")

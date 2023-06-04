@@ -1,29 +1,30 @@
 <h1>Liste des locaux</h1>
-<div><input [(ngModel)]="filtre" class="form-control" /></div>
+<div class="input-container">
+  <input
+    [(ngModel)]="filtre"
+    class="form-control custom-input"
+    placeholder="Rechercher un local"
+  />
+</div>
 
 <table class="table">
   <tr>
-    <th>id:</th>
-    <th>nom:</th>
-    <th>nbre placesPMR:</th>
-    <th>nbre placesAssises:</th>
-    <th>nbre placesFosse:</th>
-    <th></th>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Nombre places assises</th>
+    <th>Nombre de places en fosse</th>
+    <th>Nombre de places PMR</th>
     <th></th>
   </tr>
   <tr *ngFor="let local of localFiltre()">
     <td>{{ local.id }}</td>
     <td>{{ local.nom }}</td>
-    <td>{{ local.placesPMR }}</td>
     <td>{{ local.placesAssises }}</td>
     <td>{{ local.placesFosse }}</td>
+    <td>{{ local.placesPMR }}</td>
     <td>
-      <a
-        class="btn btn-outline-primary"
-        [routerLink]="'/local/edit/' + local.id"
-        >Editer</a
-      >
+      <a class="cta2" [routerLink]="'/local/edit/' + local.id">Editer</a>
     </td>
   </tr>
 </table>
-<a class="btn btn-link" routerLink="/local/edit">Nouveau local</a>
+<a class="cta3" routerLink="/local/edit">Nouveau local</a>

@@ -59,3 +59,9 @@ img {
 span {
   color: rgb(114, 211, 76);
 }
+
+#Logo:hover {
+  border-color: rgb(114, 211, 76);
+  box-shadow: 0rem 0rem 0.25rem 0.25rem rgb(114, 211, 76);
+  border-radius: 30px;
+}

@@ -1,27 +1,31 @@
 <h1>Liste du staff</h1>
-<div><input [(ngModel)]="filtre" class="form-control" /></div>
+<div class="input-container">
+  <input
+    [(ngModel)]="filtre"
+    class="form-control custom-input"
+    placeholder="Rechercher un membre du staff"
+  />
+</div>
 <table class="table">
   <tr>
-    <th>id:</th>
-    <th>nom:</th>
-    <th>evenements:</th>
+    <th>ID</th>
+    <th>Nom:</th>
+    <!-- <th>Evenements:</th> -->
     <th></th>
     <th></th>
   </tr>
   <tr *ngFor="let staff of staffFiltre()">
     <td>{{ staff.id }}</td>
     <td>{{ staff.nom }}</td>
-    <td>{{ staff.evenements }}</td>
+    <!-- <td>
+      <span *ngFor="let e of staff.evenements">{{ e.nom }}</span>
+    </td> -->
     <td>
-      <a class="btn btn-outline-primary" routerLink="/staff/edit/{{ staff.id }}"
-        >editer</a
-      >
+      <a class="cta2" routerLink="/staff/edit/{{ staff.id }}">editer</a>
     </td>
     <td>
-      <button (click)="deleteStaff(staff.id!)" class="btn btn-outline-danger">
-        supprimer
-      </button>
+      <button (click)="deleteStaff(staff.id!)" class="cta">supprimer</button>
     </td>
   </tr>
 </table>
-<a class="btn btn-link" routerLink="/staff/edit">nouveau membre du staff</a>
+<a class="cta3" routerLink="/staff/edit">nouveau membre du staff</a>

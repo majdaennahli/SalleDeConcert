@@ -11,10 +11,11 @@ body {
 }
 
 h1 {
-  font-size: 28px;
   margin: 0;
   padding: 20px;
-  color: rgb(115, 123, 233);
+  margin-bottom: 15px;
+  color: rgb(139, 143, 255);
+  font-weight: bold;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -22,18 +23,14 @@ h1 {
 }
 
 table {
-  width: 100%;
+  width: 97%;
   border-collapse: collapse;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
+  margin: auto;
 }
 
 table th,
 table td {
-  background-color: rgb(75, 48, 211);
+  background-color: rgba(31, 32, 57, 0.628);
   font-weight: bold;
   color: white;
   padding: 10px;
@@ -49,7 +46,7 @@ table td {
 table th {
   background-color: rgb(139, 139, 209);
   font-weight: bold;
-  color: white;
+  color: rgb(31, 32, 57);
 }
 
 input.form-control {
@@ -101,4 +98,73 @@ input.form-control {
   background-color: rgb(183, 90, 23);
   color: black;
   text-decoration: underline;
+}
+
+.cta {
+  display: inline-block;
+  background: linear-gradient(#8e86b5, #acaeed);
+  color: white;
+  border-radius: 50px;
+  border: #696484;
+  padding: 10px 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.cta:hover {
+  background: linear-gradient(#696484, #8788ba);
+  text-decoration: none;
+}
+.cta2 {
+  display: inline-block;
+  background: linear-gradient(rgb(114, 211, 76), rgba(114, 211, 76, 0.358));
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 10px 25px;
+
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.cta2:hover,
+.cta3:hover {
+  background: linear-gradient(rgb(58, 138, 27), rgba(114, 211, 76, 0.358));
+  text-decoration: none;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.cta3 {
+  display: inline-block;
+  background: linear-gradient(rgb(114, 211, 76), rgba(114, 211, 76, 0.358));
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 10px 25px;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.input-container {
+  width: 50%;
+  margin: auto;
+}
+input {
+  background-color: rgb(31, 32, 57);
+  color: white;
+  border-color: black;
+  margin: auto;
+}
+input:focus {
+  background-color: rgb(39, 40, 71);
+  color: white;
+}
+.custom-input:focus {
+  border-color: rgb(139, 143, 255);
+  box-shadow: 0rem 0rem 0.25rem 0.25rem rgb(139, 143, 255);
 }

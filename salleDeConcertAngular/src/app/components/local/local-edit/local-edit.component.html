@@ -1,4 +1,6 @@
-<h1>Edition du local</h1>
+<div class="title-container">
+  <h1>Edition du local</h1>
+</div>
 <form (ngSubmit)="save()" #form="ngForm">
   <div class="form-group">
     <label for="id">id:</label>
@@ -6,9 +8,10 @@
       id="id"
       name="id"
       [(ngModel)]="local.id"
-      class="form-control"
+      class="form-control custom-disabled-input"
       placeholder="numero auto"
       readonly
+      disabled
     />
     <div class="form-group">
       <label for="nom">nom:</label>
@@ -16,7 +19,7 @@
         id="nom"
         name="nom"
         [(ngModel)]="local.nom"
-        class="form-control"
+        class="form-control custom-input"
         required
         #nomCtrl="ngModel"
       />
@@ -40,50 +43,45 @@
     </select>
   </div> -->
       <div class="form-group">
-        <label for="placesPMR">nombre de places PMR:</label>
+        <label for="placesPMR">Nombre de places PMR:</label>
         <input
           id="placesPMR"
           name="placesPMR"
           [(ngModel)]="local.placesPMR"
-          class="form-control"
+          class="form-control custom-input"
           required
         />
       </div>
       <div class="form-group">
-        <label for="placesAssises">nombre de places Assises:</label>
+        <label for="placesAssises">Nombre de places assises:</label>
         <input
           id="placesAssises"
           name="placesAssises"
           [(ngModel)]="local.placesAssises"
-          class="form-control"
+          class="form-control custom-input"
           required
         />
       </div>
       <div class="form-group">
-        <label for="placesFosse">nombre de places en Fosse:</label>
+        <label for="placesFosse">Nombre de places en fosse:</label>
         <input
           id="placesFosse"
           name="placesFosse"
           [(ngModel)]="local.placesFosse"
-          class="form-control"
+          class="form-control custom-input"
           required
         />
       </div>
 
-      <div class="form-group">
-        <button
-          type="submit"
-          [disabled]="form.invalid"
-          class="btn btn-outline-primary"
-        >
-          enregistrer
-        </button>
-        <a
-          routerLink="/local"
-          routerLinkActive="active"
-          class="btn btn-outline-warning"
-          >annuler</a
-        >
+      <div class="button-container">
+        <div class="form-group">
+          <button type="submit" [disabled]="form.invalid" class="cta">
+            enregistrer
+          </button>
+          <a routerLink="/local" routerLinkActive="active" class="cta2"
+            >annuler</a
+          >
+        </div>
       </div>
     </div>
   </div>

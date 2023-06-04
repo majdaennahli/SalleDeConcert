@@ -1,10 +1,16 @@
-<h1>liste des artistes</h1>
-<div><input [(ngModel)]="filtre" class="form-control" /></div>
+<h1>Liste des artistes</h1>
+<div class="input-container">
+  <input
+    [(ngModel)]="filtre"
+    class="form-control custom-input"
+    placeholder="Rechercher un artiste"
+  />
+</div>
 <table class="table">
   <tr>
-    <th>id:</th>
-    <th>nomArtiste:</th>
-    <th>nationalite:</th>
+    <th>ID</th>
+    <th>Nom de l'artiste</th>
+    <th>Nationalité</th>
     <th></th>
     <th></th>
   </tr>
@@ -14,20 +20,13 @@
     <td>{{ artiste.nationalite }}</td>
 
     <td>
-      <a
-        class="btn btn-outline-primary"
-        routerLink="/artiste/edit/{{ artiste.id }}"
-        >editer</a
-      >
+      <a class="cta2" routerLink="/artiste/edit/{{ artiste.id }}">Editer</a>
     </td>
     <td>
-      <button
-        (click)="deleteArtiste(artiste.id!)"
-        class="btn btn-outline-danger"
-      >
-        supprimer
+      <button (click)="deleteArtiste(artiste.id!)" class="cta">
+        Supprimer
       </button>
     </td>
   </tr>
 </table>
-<a class="btn btn-link" routerLink="/artiste/edit">nouveau artiste</a>
+<a class="cta3" routerLink="/artiste/edit">Nouvel artiste</a>

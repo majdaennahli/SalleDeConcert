@@ -1,15 +1,19 @@
-<h1>listes des clients</h1>
-<div><input [(ngModel)]="filtre" class="form-control" /></div>
+<h1>Liste des clients</h1>
+<div class="input-container">
+  <input
+    [(ngModel)]="filtre"
+    class="form-control custom-input"
+    placeholder="Rechecher un client"
+  />
+</div>
 <table class="table">
   <tr>
-    <th>id:</th>
-    <th>login:</th>
-    <th>nom:</th>
-    <th>prenom:</th>
-    <th>telephone:</th>
-    <th>naissance:</th>
-    <th></th>
-    <th></th>
+    <th>ID</th>
+    <th>Login</th>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Téléphone</th>
+    <th>Naissance</th>
   </tr>
   <tr *ngFor="let client of clientFiltre()">
     <td>{{ client.id }}</td>

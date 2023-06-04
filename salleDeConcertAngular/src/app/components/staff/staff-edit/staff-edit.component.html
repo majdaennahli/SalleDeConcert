@@ -1,4 +1,6 @@
-<h1>Edition du membre du staff</h1>
+<div class="title-container">
+  <h1>Edition du membre du staff</h1>
+</div>
 <form (ngSubmit)="save()" #form="ngForm">
   <div class="form-group">
     <label for="id">id:</label>
@@ -6,9 +8,10 @@
       id="id"
       name="id"
       [(ngModel)]="staff.id"
-      class="form-control"
+      class="form-control custom-disabled-input"
       placeholder="numero auto"
       readonly
+      disabled
     />
   </div>
   <div class="form-group">
@@ -17,7 +20,7 @@
       id="nom"
       name="nom"
       [(ngModel)]="staff.nom"
-      class="form-control"
+      class="form-control custom-input"
       required
       #nomCtrl="ngModel"
     />
@@ -25,19 +28,12 @@
       nom obligatoire
     </div>
   </div>
-  <div>
-    <button
-      type="submit"
-      [disabled]="form.invalid"
-      class="btn btn-outline-primary"
-    >
-      enregistrer
-    </button>
-    <a
-      routerLink="/staff"
-      routerLinkActive="active"
-      class="btn btn-outline-warning"
-      >annuler</a
-    >
+  <div class="button-container">
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="cta">
+        enregistrer
+      </button>
+      <a routerLink="/staff" routerLinkActive="active" class="cta2">annuler</a>
+    </div>
   </div>
 </form>

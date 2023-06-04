@@ -1,8 +1,9 @@
 <header>
   <nav>
     <a routerLink="/home" routerLinkActive="active"
-      ><img src="../../../assets/images/DuckEvent.png" alt="Accueil"
+      ><img id="Logo" src="../../../assets/images/DuckEvent.png" alt="Accueil"
     /></a>
+
     <ul class="menu">
       <li *ngIf="!verifTypeCompte()">
         <a routerLink="/client/home" routerLinkActive="active">Home</a>

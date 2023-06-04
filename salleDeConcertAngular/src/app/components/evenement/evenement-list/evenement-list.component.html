@@ -1,18 +1,22 @@
-<h1>Liste des evenements</h1>
-<div>
-  <input [(ngModel)]="filtre" class="form-control" />
+<h1>Liste des évènements</h1>
+<div class="input-container">
+  <input
+    [(ngModel)]="filtre"
+    class="form-control custom-input"
+    placeholder="Rechercher un évènement"
+  />
 </div>
 <table class="table">
   <tr>
-    <th>id:</th>
-    <th>nom:</th>
-    <th>prix:</th>
-    <th>date de début</th>
-    <th>date de fin</th>
-    <th>heure de début</th>
-    <th>heure de fin</th>
-    <th>Type d'evenement</th>
-    <th>local</th>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Prix</th>
+    <th>Date de début</th>
+    <th>Date de fin</th>
+    <th>Heure de début</th>
+    <th>Heure de fin</th>
+    <th>Type d'évènement</th>
+    <th>Local</th>
     <th></th>
     <th></th>
   </tr>
@@ -20,8 +24,8 @@
     <td>{{ evenement.id }}</td>
     <td>{{ evenement.nom }}</td>
     <td>{{ evenement.prix }}</td>
-    <td>{{ evenement.dateDebut }}</td>
-    <td>{{ evenement.dateFin }}</td>
+    <td>{{ evenement.dateDebut | date : "dd-MM-YYYY" }}</td>
+    <td>{{ evenement.dateFin | date : "dd-MM-YYYY" }}</td>
     <td>{{ evenement.heureDebut }}</td>
     <td>{{ evenement.heureFin }}</td>
     <td>{{ evenement.typeEvenement }}</td>
@@ -30,21 +34,15 @@
     </td>
 
     <td>
-      <a
-        class="btn btn-outline-primary"
-        [routerLink]="'/evenement/edit/' + evenement.id"
-      >
+      <a class="cta2" [routerLink]="'/evenement/edit/' + evenement.id">
         Editer
       </a>
     </td>
     <td>
-      <button
-        (click)="deleteEvenement(evenement.id!)"
-        class="btn btn-outline-danger"
-      >
-        supprimer
+      <button (click)="deleteEvenement(evenement.id!)" class="cta">
+        Supprimer
       </button>
     </td>
   </tr>
 </table>
-<a class="btn btn-link" routerLink="/evenement/edit">Nouvel évènement</a>
+<a class="cta3" routerLink="/evenement/edit">Nouvel évènement</a>

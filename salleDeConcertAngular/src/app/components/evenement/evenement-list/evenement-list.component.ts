@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Evenement } from 'src/app/models/evenement';
 import { EvenementService } from 'src/app/services/evenement.service';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-evenement-list',

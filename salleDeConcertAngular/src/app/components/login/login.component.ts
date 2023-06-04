@@ -27,7 +27,7 @@ export class LoginComponent {
         );
         sessionStorage.setItem('compte', JSON.stringify(compte));
         if (this.verifTypeCompte()) {
-          this.router.navigateByUrl('/admin/home');
+          this.router.navigateByUrl('/home');
         } else this.router.navigateByUrl('/client/home');
       },
       error: (err) => {

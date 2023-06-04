@@ -139,7 +139,6 @@ const routes: Routes = [
   {
     path: 'evenement-details/:id',
     component: EvenementDetailsComponent,
-    canActivate: [ClientGuardService],
   },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
