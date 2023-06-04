@@ -93,13 +93,16 @@ public class Evenement {
 	@Column(name="event_type")
 	@JsonView(JsonViews.Base.class)
 	private TypeEvenement typeEvenement;
+	@Column(name="event_image")
+	@JsonView(JsonViews.Base.class)
+	private String imageURL;
 	
 	public Evenement() {
 	
 	}
 	
 	public Evenement(String nom, double prix, LocalDate dateDebut, LocalTime heureDebut, LocalDate dateFin,
-			LocalTime heureFin, Local local,TypeEvenement typeEvenement) {
+			LocalTime heureFin, Local local,TypeEvenement typeEvenement,String imageURL) {
 		super();
 		this.nom = nom;
 		this.prix = prix;
@@ -109,6 +112,7 @@ public class Evenement {
 		this.heureFin = heureFin;
 		this.local = local;
 		this.typeEvenement = typeEvenement;
+		this.imageURL=imageURL;
 	
 	}
 	
@@ -186,6 +190,13 @@ public class Evenement {
 		this.artistes = artistes;
 	}
 	
+	public String getImageURL() {
+		return imageURL;
+	}
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

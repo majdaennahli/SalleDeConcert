@@ -32,6 +32,9 @@ public class Artiste {
 	@JsonView(JsonViews.ArtisteWithEvenements.class)
 	@ManyToMany(mappedBy = "artistes")
 	private Set<Evenement> evenements;
+	@Column(name="artiste_image")
+	@JsonView(JsonViews.Base.class)
+	private String imageURL;
 
 
 	public Artiste() {

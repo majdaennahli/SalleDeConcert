@@ -76,6 +76,7 @@ public class EvenementService {
 		evenementEnBase.setStaffs(evenement.getStaffs());
 		evenementEnBase.setTypeEvenement(evenement.getTypeEvenement());
 		evenementEnBase.setArtistes(evenement.getArtistes());
+		evenementEnBase.setImageURL(evenement.getImageURL());
 		return evenementRepo.save(evenementEnBase);
 	}
 

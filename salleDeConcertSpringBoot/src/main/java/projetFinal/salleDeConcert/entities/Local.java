@@ -39,6 +39,9 @@ public class Local {
 	@Column(name="local_places_fosse")
 	@JsonView(JsonViews.Base.class)
 	private int placesFosse;
+	@Column(name="local_image")
+	@JsonView(JsonViews.Base.class)
+	private String imageURL;
 	public Local() {
 	
 	}

@@ -25,15 +25,15 @@
   </div>
   <div class="form-group">
     <label for="dateDebut">Début:</label>
-    <input id="dateDebut" type="date" />
+    <input id="dateDebut" type="date" [(ngModel)]="evenement.dateDebut" />
     <!-- <label for="heureDebut">heure de début:</label> -->
-    <input id="heureDebut" type="time" />
+    <input id="heureDebut" type="time" [(ngModel)]="evenement.heureDebut" />
   </div>
   <div class="form-group">
     <label for="dateFin">Fin:</label>
-    <input id="dateFin" type="date" />
+    <input id="dateFin" type="date" [(ngModel)]="evenement.dateFin" />
     <!-- <label for="heureFin">heure de fin:</label> -->
-    <input id="heureFin" type="time" />
+    <input id="heureFin" type="time" [(ngModel)]="evenement.heureFin" />
   </div>
 
   <div class="form-group">

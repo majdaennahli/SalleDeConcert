@@ -37,10 +37,14 @@ const routes: Routes = [
   {
     path: 'affichage-evenement',
     component: AffichageEvenementComponent,
-    canActivate: [ClientGuardService],
   },
   {
     path: 'reservation',
+    component: ReservationComponent,
+    canActivate: [ClientGuardService],
+  },
+  {
+    path: 'reservation/:id',
     component: ReservationComponent,
     canActivate: [ClientGuardService],
   },

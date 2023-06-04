@@ -17,6 +17,7 @@ export class Evenement {
     public reservations?: Reservation[],
     public artistes?: Artiste[],
     public staffs?: Staff[],
+    public imageURL?: string,
     public id?: number
   ) {}
 }

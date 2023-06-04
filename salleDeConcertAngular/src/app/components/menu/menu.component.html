@@ -1,72 +1,51 @@
-<nav>
-  <a
-    *ngIf="verifTypeCompte()"
-    routerLink="/home"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >Home</a
-  >
-  <a
-    *ngIf="!verifTypeCompte()"
-    routerLink="/client/home"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >Home</a
-  >
-  <a
-    *ngIf="verifTypeCompte()"
-    routerLink="/evenement"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >Evenements</a
-  >
-  <a
-    *ngIf="verifTypeCompte()"
-    routerLink="/artiste"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >Artistes</a
-  >
-  <a
-    *ngIf="verifTypeCompte()"
-    routerLink="/staff"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >Staff</a
-  >
+<header>
+  <nav>
+    <a routerLink="/home" routerLinkActive="active"
+      ><img src="../../../assets/images/DuckEvent.png" alt="Accueil"
+    /></a>
+    <ul class="menu">
+      <li *ngIf="!verifTypeCompte()">
+        <a routerLink="/client/home" routerLinkActive="active">Home</a>
+        <div></div>
+      </li>
+      <li *ngIf="verifTypeCompte()">
+        <a routerLink="/evenement" routerLinkActive="active">Evenements</a>
+        <div></div>
+      </li>
+      <li *ngIf="verifTypeCompte()">
+        <a routerLink="/artiste" routerLinkActive="active">Artistes</a>
+        <div></div>
+      </li>
+      <li *ngIf="verifTypeCompte()">
+        <a routerLink="/staff" routerLinkActive="active">Staff</a>
+        <div></div>
+      </li>
 
-  <a
-    *ngIf="verifTypeCompte()"
-    routerLink="/local"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >Locaux</a
-  >
+      <li *ngIf="verifTypeCompte()">
+        <a routerLink="/local" routerLinkActive="active">Locaux</a>
+        <div></div>
+      </li>
 
-  <a
-    *ngIf="!login"
-    routerLink="/login"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >Login</a
-  >
-  <a
-    *ngIf="!login"
-    routerLink="/inscription"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >S'inscrire</a
-  >
+      <li *ngIf="!login">
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <div></div>
+      </li>
+      <li *ngIf="!login">
+        <a routerLink="/inscription" routerLinkActive="active">S'inscrire</a>
+        <div></div>
+      </li>
 
-  <a
-    *ngIf="verifTypeCompte()"
-    routerLink="/client"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >Clients</a
-  >
-  <button *ngIf="login" (click)="logoff()" class="btn btn-link">
-    Deconnexion
-  </button>
-  <span *ngIf="login">Bonjour {{ login }}</span>
-</nav>
+      <li *ngIf="verifTypeCompte()">
+        <a routerLink="/client" routerLinkActive="active">Clients</a>
+        <div></div>
+      </li>
+      <li *ngIf="login">
+        <button (click)="logoff()">Deconnexion</button>
+        <div></div>
+      </li>
+
+      <span *ngIf="login">Bonjour {{ login }}</span>
+      <div></div>
+    </ul>
+  </nav>
+</header>

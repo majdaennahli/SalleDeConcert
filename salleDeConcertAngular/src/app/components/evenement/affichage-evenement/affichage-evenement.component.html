@@ -1,1 +1,20 @@
-<p>affichage-evenement works!</p>
+<!-- <div *ngFor="let e of evenements">
+  {{ e.nom }}
+  <img src="{{ e.imageURL }}" alt="jordan" />
+  <a>Reserver</a>
+</div> -->
+<section>
+  <h1>Evenements à venir</h1>
+</section>
+<section class="portfolio-section-photos">
+  <div class="grid-paysages">
+    <ng-container *ngFor="let e of evenements">
+      <a class="lien-conteneur-photo">
+        <img src="{{ e.imageURL }}" alt="{{ e.nom }}" />
+        <div class="photo-hover">
+          <div class="contenu-hover">Plus de détails</div>
+        </div>
+      </a>
+    </ng-container>
+  </div>
+</section>
