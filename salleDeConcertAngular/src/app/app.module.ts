@@ -24,6 +24,8 @@ import { EvenementEditComponent } from './components/evenement/evenement-edit/ev
 import { NgModule } from '@angular/core';
 import { AffichageEvenementComponent } from './components/evenement/affichage-evenement/affichage-evenement.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { PaiementComponent } from './components/paiement/paiement.component';
+import { EvenementDetailsComponent } from './components/evenement/evenement-details/evenement-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     EvenementEditComponent,
     AffichageEvenementComponent,
     ReservationComponent,
+    PaiementComponent,
+    EvenementDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ export class Local {
     public placesPMR?: number,
     public placesAssises?: number,
     public placesFosse?: number,
+    public imageURL?: string,
     public id?: number
   ) {}
 }

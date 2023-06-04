@@ -21,6 +21,8 @@ import { ClientGuardService } from './services/guard/client-guard.service';
 import { LoggoffGuardService } from './services/guard/loggoff-guard.service';
 import { AffichageEvenementComponent } from './components/evenement/affichage-evenement/affichage-evenement.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { PaiementComponent } from './components/paiement/paiement.component';
+import { EvenementDetailsComponent } from './components/evenement/evenement-details/evenement-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -128,6 +130,16 @@ const routes: Routes = [
     path: 'evenement/edit/:id',
     component: EvenementEditComponent,
     canActivate: [AdminGuardService],
+  },
+  {
+    path: 'paiement/:id',
+    component: PaiementComponent,
+    canActivate: [ClientGuardService],
+  },
+  {
+    path: 'evenement-details/:id',
+    component: EvenementDetailsComponent,
+    canActivate: [ClientGuardService],
   },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
