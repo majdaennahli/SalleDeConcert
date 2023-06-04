@@ -22,8 +22,8 @@ import { ClientHomeComponent } from './components/customer/client-home/client-ho
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { EvenementEditComponent } from './components/evenement/evenement-edit/evenement-edit.component';
 import { NgModule } from '@angular/core';
-import { ReservationComponent } from './components/reservation/reservation.component';
 import { AffichageEvenementComponent } from './components/evenement/affichage-evenement/affichage-evenement.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,9 +43,9 @@ import { AffichageEvenementComponent } from './components/evenement/affichage-ev
     ClientHomeComponent,
     AdminHomeComponent,
     EvenementEditComponent,
-    ReservationComponent,
     EvenementEditComponent,
     AffichageEvenementComponent,
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,
