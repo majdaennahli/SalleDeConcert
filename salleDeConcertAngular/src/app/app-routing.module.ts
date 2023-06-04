@@ -19,8 +19,8 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AdminGuardService } from './services/guard/admin-guard.service';
 import { ClientGuardService } from './services/guard/client-guard.service';
 import { LoggoffGuardService } from './services/guard/loggoff-guard.service';
-import { ReservationComponent } from './components/reservation/reservation.component';
 import { AffichageEvenementComponent } from './components/evenement/affichage-evenement/affichage-evenement.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
