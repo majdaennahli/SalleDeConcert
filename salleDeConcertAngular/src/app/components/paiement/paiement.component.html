@@ -1,1 +1,96 @@
-<p>paiement works!</p>
+<h2>Payez en ligne</h2>
+
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <div class="form-group">
+    <label for="typecarte">Type de carbe bancaire:</label>
+
+    <input type="radio" name="typecarte" id="visa" />
+    <label for="visa"></label>
+    <img src="./assets/typeCB/visa.png" id="visalogo" />
+
+    <input type="radio" name="typecarte" id="AmEx" />
+    <label for="AmEx"></label>
+    <img src="./assets/typeCB/amex.png" id="amexlogo" />
+
+    <input type="radio" name="typecarte" id="Mastercard" />
+    <label for="Mastercard"></label>
+    <img src="./assets/typeCB/mastercard.png" id="mastercardlogo" />
+  </div>
+
+  <div class="form-group">
+    <label for="porteur">Nom sur la carte:</label>
+    <input
+      id="porteur"
+      name="porteur"
+      class="form-control"
+      required
+      formControlName="porteur"
+    />
+    <div *ngIf="form.get('porteur')?.dirty && form.get('porteur')?.invalid">
+      nom du porteur obligatoire
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="numcarte">N° de carte:</label>
+    <input
+      id="numcarte"
+      name="numcarte"
+      class="form-control"
+      maxlength="16"
+      required
+      formControlName="numcarte"
+      placeholder="**** **** **** ****"
+    />
+    <div *ngIf="form.get('numcarte')?.dirty && form.get('numcarte')?.invalid">
+      numéro de carte obligatoire
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="expiration">Date d'expiration:</label>
+    <input
+      id="expiration"
+      type="month"
+      class="form-control"
+      formControlName="expiration"
+    />
+    <div
+      *ngIf="form.get('expiration')?.dirty && form.get('expiration')?.invalid"
+    >
+      date d'expiration obligatoire*
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="code">Code sécurité:</label>
+    <input
+      id="code"
+      name="code"
+      maxlength="3"
+      class="form-control"
+      required
+      formControlName="code"
+      placeholder="***"
+    />
+    <div *ngIf="form.get('code')?.dirty && form.get('code')?.invalid">
+      code sécurité obligatoire
+    </div>
+  </div>
+
+  <div>
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-outline-primary"
+    >
+      Valider
+    </button>
+    <a
+      routerLink="/reservation"
+      routerLinkActive="active"
+      class="btn btn-outline-warning"
+      >Annuler</a
+    >
+  </div>
+</form>
