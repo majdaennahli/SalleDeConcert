@@ -1,0 +1,96 @@
+#visalogo,
+#mastercardlogo,
+#amexlogo {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+h1,
+form {
+  background-color: rgb(58, 60, 107);
+}
+
+h1,
+h2 {
+  margin-bottom: 15px;
+  color: rgb(139, 143, 255);
+  font-weight: bold;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(58, 60, 107);
+}
+input {
+  width: 50%;
+}
+input {
+  background-color: rgb(31, 32, 57);
+  color: white;
+  border-color: black;
+  margin: auto;
+}
+
+label {
+  display: flex;
+  justify-content: center;
+  color: rgb(139, 143, 255);
+}
+
+input:focus {
+  background-color: rgb(39, 40, 71);
+  color: white;
+}
+.custom-input:focus {
+  border-color: rgb(139, 143, 255);
+  box-shadow: 0rem 0rem 0.25rem 0.25rem rgb(139, 143, 255);
+}
+.custom-disabled-input {
+  background-color: rgba(
+    189,
+    189,
+    189,
+    0.082
+  ); /* Couleur de fond pour les inputs désactivés */
+  color: black; /* Couleur du texte pour les inputs désactivés */
+  border-color: black; /* Couleur du cadre pour les inputs désactivés */
+  /* Ajoutez d'autres styles personnalisés si nécessaire */
+}
+
+select,
+option {
+  color: white;
+  width: 50%;
+  margin: auto;
+}
+
+select:focus {
+  background-color: rgb(39, 40, 71);
+  color: white;
+}
+
+select {
+  border-color: black;
+  background-color: rgb(31, 32, 57);
+}
+option {
+  background-color: rgb(31, 32, 57);
+}
+
+#artiste,
+#staff {
+  width: 12px;
+  height: 12px;
+  margin: auto;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 15px;
+}

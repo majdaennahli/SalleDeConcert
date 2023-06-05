@@ -6,7 +6,7 @@
 
     <ul class="menu">
       <li *ngIf="!verifTypeCompte()">
-        <a routerLink="/client/home" routerLinkActive="active">Home</a>
+        <a routerLink="/home" routerLinkActive="active">Accueil</a>
         <div></div>
       </li>
       <li *ngIf="verifTypeCompte()">
@@ -28,7 +28,7 @@
       </li>
 
       <li *ngIf="!login">
-        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/login" routerLinkActive="active">Se connecter</a>
         <div></div>
       </li>
       <li *ngIf="!login">

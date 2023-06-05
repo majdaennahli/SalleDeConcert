@@ -21,11 +21,11 @@
       <span *ngFor="let e of staff.evenements">{{ e.nom }}</span>
     </td> -->
     <td>
-      <a class="cta2" routerLink="/staff/edit/{{ staff.id }}">editer</a>
+      <a class="cta2" routerLink="/staff/edit/{{ staff.id }}">Editer</a>
     </td>
     <td>
-      <button (click)="deleteStaff(staff.id!)" class="cta">supprimer</button>
+      <button (click)="deleteStaff(staff.id!)" class="cta">Supprimer</button>
     </td>
   </tr>
 </table>
-<a class="cta3" routerLink="/staff/edit">nouveau membre du staff</a>
+<a class="cta3" routerLink="/staff/edit">Nouveau membre du staff</a>
