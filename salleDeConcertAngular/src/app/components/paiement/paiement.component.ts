@@ -8,6 +8,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PaiementComponent implements OnInit {
   form!: FormGroup;
+  dateNow: Date = new Date();
+  expiration: string =
+    this.dateNow.getFullYear() +
+    '-' +
+    (this.dateNow.getMonth() + 1).toString().padStart(2, '0');
 
   constructor() {}
 

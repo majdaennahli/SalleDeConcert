@@ -19,8 +19,9 @@ import { StaffService } from 'src/app/services/staff.service';
 export class EvenementEditComponent implements OnInit {
   evenement!: Evenement;
   obsLocaux!: Observable<Local[]>;
-  obsArtistes!: Observable<Artiste[]>;
-  obsStaffs!: Observable<Staff[]>;
+  artistes!: Artiste[];
+
+  staffs!: Staff[];
   // obsReservations!: Observable<Reservation[]>;
 
   constructor(
@@ -43,12 +44,19 @@ export class EvenementEditComponent implements OnInit {
       }
     });
     this.obsLocaux = this.localSrv.getLocaux();
-    this.obsArtistes = this.artisteSrv.getArtistes();
-    //this.obsReservations = this.reservationSrv.getReservations();
-    this.obsStaffs = this.staffSrv.getStaffs();
+    this.artisteSrv.getArtistes().subscribe((res) => (this.artistes = res));
+
+    this.staffSrv.getStaffs().subscribe((res) => (this.staffs = res));
   }
 
   save() {
+    this.evenement.artistes = this.artistes.filter(
+      (artiste) => artiste.checked
+    );
+
+    this.evenement.staffs = this.staffs.filter((staff) => staff.checked);
+
+    console.log(this.evenement); /*
     if (this.evenement.id) {
       this.evenementSrv.update(this.evenement).subscribe((res) => {
         this.router.navigateByUrl('/evenement');
@@ -57,7 +65,7 @@ export class EvenementEditComponent implements OnInit {
       this.evenementSrv.create(this.evenement).subscribe((res) => {
         this.router.navigateByUrl('/evenement');
       });
-    }
+    }*/
   }
   compareByIdLocal(locOptionActive: Local, locSelect: Local): boolean {
     if (locSelect && locOptionActive) {
@@ -71,6 +79,7 @@ export class EvenementEditComponent implements OnInit {
   //   }
   //   return false;
   // }
+  /*
   compareByIdStaff(stfOptionActive: Staff, stfSelect: Staff): boolean {
     if (stfSelect && stfOptionActive) {
       return stfOptionActive.id === stfSelect.id;
@@ -82,5 +91,5 @@ export class EvenementEditComponent implements OnInit {
       return artOptionActive.id === artSelect.id;
     }
     return false;
-  }
+  }*/
 }

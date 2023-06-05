@@ -6,6 +6,7 @@ export class Artiste {
     public nationalite?: string,
     public evenements?: Evenement,
     public imageURL?: string,
+    public checked = false,
     public id?: number
   ) {}
 }

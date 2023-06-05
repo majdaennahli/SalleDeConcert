@@ -1,14 +1,28 @@
-<h1>Modification du compte client</h1>
+<div class="title-container">
+  <h1>Modification de mes infos</h1>
+</div>
 <form (ngSubmit)="save()" #form="ngForm">
   <div class="form-group">
-    <label for="id">id:</label>
+    <label class="input-id" for="id">id:</label>
     <input
       id="id"
       name="id"
       [(ngModel)]="client.id"
-      class="form-control"
+      class="form-control input-id"
       placeholder="numero auto"
       readonly
+      disabled
+    />
+  </div>
+  <div class="form-group">
+    <label for="id">Login (Lecture seule)</label>
+    <input
+      id="login"
+      name="login"
+      [(ngModel)]="client.login"
+      class="form-control custom-disabled-input"
+      readonly
+      disabled
     />
   </div>
   <div class="form-group">
@@ -17,14 +31,14 @@
       id="prenom"
       name="prenom"
       [(ngModel)]="client.prenom"
-      class="form-control"
+      class="form-control custom-input"
       required
       pattern="^[a-zA-Z][a-zA-Z]*((-|\s)[a-zA-Z]+)*$"
       #prenomCtrl="ngModel"
     />
     <div
       *ngIf="prenomCtrl.dirty && prenomCtrl.invalid"
-      class="alert alert-danger"
+      class="alert alert-danger custom-alert"
     >
       prenom obligatoire
     </div>
@@ -35,12 +49,15 @@
       id="nom"
       name="nom"
       [(ngModel)]="client.nom"
-      class="form-control"
+      class="form-control custom-input"
       required
       pattern="^[a-zA-Z][a-zA-Z]*((-|\s)[a-zA-Z]+)*$"
       #nomCtrl="ngModel"
     />
-    <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert alert-danger">
+    <div
+      *ngIf="nomCtrl.dirty && nomCtrl.invalid"
+      class="alert alert-danger custom-alert"
+    >
       nom obligatoire
     </div>
   </div>
@@ -50,13 +67,13 @@
       id="telephone"
       name="telephone"
       [(ngModel)]="client.telephone"
-      class="form-control"
+      class="form-control custom-input"
       required
       #telephoneCtrl="ngModel"
     />
     <div
       *ngIf="telephoneCtrl.dirty && telephoneCtrl.invalid"
-      class="alert alert-danger"
+      class="alert alert-danger custom-alert"
     >
       telephone obligatoire
     </div>
@@ -67,29 +84,22 @@
       id="naissance"
       name="naissance"
       [(ngModel)]="client.naissance"
-      class="form-control"
+      class="form-control custom-input"
       required
       #naissanceCtrl="ngModel"
     />
     <div
       *ngIf="naissanceCtrl.dirty && naissanceCtrl.invalid"
-      class="alert alert-danger"
+      class="alert alert-danger custom-alert"
     >
-      telephone obligatoire
+      <span> date de naissance obligatoire </span>
     </div>
   </div>
-  <div>
-    <button
-      type="submit"
-      [disabled]="form.invalid"
-      class="btn btn-outline-primary"
-    >
+  <div class="button-container">
+    <button type="submit" [disabled]="form.invalid" class="cta">
       enregistrer
     </button>
-    <a
-      routerLink="/client/home"
-      routerLinkActive="active"
-      class="btn btn-outline-warning"
+    <a routerLink="/client/home" routerLinkActive="active" class="cta2"
       >annuler</a
     >
   </div>

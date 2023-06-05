@@ -7,7 +7,7 @@ export class Client {
     public nom?: string,
     public naissance?: Date,
     public telephone?: string,
-    public reservation?: Reservation,
+    public reservations?: Reservation[],
     public id?: number
   ) {}
 }

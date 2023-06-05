@@ -46,6 +46,7 @@ public class ArtisteService {
 		artisteEnBase.setNomArtiste(artiste.getNomArtiste());
 		artisteEnBase.setNationalite(artiste.getNationalite());
 		artisteEnBase.setEvenements(artiste.getEvenements());
+		artisteEnBase.setImageURL(artiste.getImageURL());
 		return artisteRepo.save(artisteEnBase);
 	}
 

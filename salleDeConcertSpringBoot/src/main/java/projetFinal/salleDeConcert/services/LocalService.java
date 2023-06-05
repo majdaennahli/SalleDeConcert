@@ -45,6 +45,7 @@ public class LocalService {
 		localEnBase.setPlacesAssises(local.getPlacesAssises());
 		localEnBase.setPlacesFosse(local.getPlacesFosse());
 		localEnBase.setPlacesPMR(local.getPlacesPMR());
+		localEnBase.setImageURL(local.getImageURL());
 		return localRepo.save(localEnBase);
 	}
 

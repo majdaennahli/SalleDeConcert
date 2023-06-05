@@ -47,6 +47,17 @@
     >
       nationalite obligatoire
     </div>
+    <div class="form-group">
+      <label for="imageURL">Lien de la photo de l'artiste:</label>
+      <input
+        id="imageURL"
+        name="imageURL"
+        [(ngModel)]="artiste.imageURL"
+        class="form-control custom-input"
+        required
+        #nomCtrl="ngModel"
+      />
+    </div>
   </div>
   <div class="button-container">
     <div class="form-group">

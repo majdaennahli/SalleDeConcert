@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Evenement } from 'src/app/models/evenement';
+import { Reservation } from 'src/app/models/reservation';
 import { EvenementService } from 'src/app/services/evenement.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { EvenementService } from 'src/app/services/evenement.service';
 })
 export class ReservationComponent implements OnInit {
   evenement!: Evenement;
-
+  reservation: Reservation = new Reservation();
   constructor(
     private evenementSrv: EvenementService,
     private router: Router,
@@ -29,6 +30,8 @@ export class ReservationComponent implements OnInit {
   }
 
   save() {
+    // this.reservation.evenement = this.evenement;
+    // this.reservation.client = sessionStorage.getItem("compte");
     // A FAIRE
   }
 }

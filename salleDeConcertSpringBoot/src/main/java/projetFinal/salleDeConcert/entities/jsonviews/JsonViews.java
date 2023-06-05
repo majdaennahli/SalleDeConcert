@@ -56,6 +56,8 @@ public class JsonViews {
 	public class EvenementWithArtistes extends Evenement {
 
 	}
+	
+	public class EvenementWithStaffsAndArtistes extends Evenement{}
 
 	public class Compte extends Base {
 

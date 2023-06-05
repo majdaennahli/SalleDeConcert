@@ -54,7 +54,7 @@ public class EvenementRestController {
 	}
 	
 	@GetMapping("/{id}")
-	@JsonView(JsonViews.Evenement.class)
+	@JsonView(JsonViews.EvenementWithStaffsAndArtistes.class)
 	public Evenement getById(@PathVariable("id") Long id) {
 		return evenementSrv.getById(id);
 	}

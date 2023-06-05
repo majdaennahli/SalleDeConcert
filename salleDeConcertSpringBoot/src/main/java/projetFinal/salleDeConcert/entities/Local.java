@@ -45,9 +45,23 @@ public class Local {
 	public Local() {
 	
 	}
+	
+	
 	public Local(String nom) {
 		this.nom = nom;
 	}
+	
+	
+	public String getImageURL() {
+		return imageURL;
+	}
+
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+
+
 	public Long getId() {
 		return id;
 	}

@@ -74,7 +74,7 @@ public class Evenement {
     name="organisation",
     joinColumns = @JoinColumn(name="organisation_event_id",foreignKey = @ForeignKey(name="organisation_event_id_fk")),
     inverseJoinColumns = @JoinColumn(name="organisation_staff_id",foreignKey = @ForeignKey(name="organisation_staff_id_fk")))
-	@JsonView(JsonViews.Base.class)
+	@JsonView(JsonViews.EvenementWithStaffsAndArtistes.class)
 	private Set<Staff> staffs;
 	
 	@OneToMany(mappedBy = "evenement")
@@ -86,7 +86,7 @@ public class Evenement {
             name="prestation",
             joinColumns = @JoinColumn(name="prestation_event_id",foreignKey = @ForeignKey(name="prestation_event_id_fk")),
             inverseJoinColumns = @JoinColumn(name="prestation_artiste_id",foreignKey = @ForeignKey(name="prestation_artiste_id_fk")))
-	@JsonView(JsonViews.Base.class)
+	@JsonView(JsonViews.EvenementWithStaffsAndArtistes.class)
 	private Set<Artiste> artistes;
 	
 	@Enumerated(EnumType.STRING)

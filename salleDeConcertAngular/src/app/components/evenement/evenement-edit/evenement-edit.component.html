@@ -98,6 +98,17 @@
       />
     </div>
     <div class="form-group">
+      <label for="imageURL">Lien de l'affiche de l'évènement':</label>
+      <input
+        id="imageURL"
+        name="imageURL"
+        [(ngModel)]="evenement.imageURL"
+        class="form-control custom-input"
+        required
+        #nomCtrl="ngModel"
+      />
+    </div>
+    <div class="form-group">
       <label for="local">Local:</label>
       <select
         id="local"
@@ -117,11 +128,11 @@
         <ul>
           <label for="artistes">Artistes:</label>
           <li>
-            <div *ngFor="let artiste of obsArtistes | async; let i = index">
+            <div *ngFor="let artiste of artistes">
               <input
                 type="checkbox"
-                name="artistes"
-                [(ngModel)]="evenement.artistes"
+                [checked]="artiste.checked"
+                (change)="artiste.checked = !artiste.checked"
                 id="artiste"
               />
               {{ artiste.nomArtiste }}
@@ -134,11 +145,11 @@
         <ul>
           <label for="staffs">Staffs:</label>
           <li>
-            <div *ngFor="let staff of obsStaffs | async; let i = index">
+            <div *ngFor="let staff of staffs">
               <input
                 type="checkbox"
-                name="staffs"
-                [(ngModel)]="evenement.staffs"
+                [checked]="staff.checked"
+                (change)="staff.checked = !staff.checked"
                 id="staff"
               />
               {{ staff.nom }}
