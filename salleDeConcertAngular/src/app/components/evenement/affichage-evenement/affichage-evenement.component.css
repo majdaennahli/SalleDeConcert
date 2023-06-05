@@ -1,3 +1,14 @@
+h1 {
+  text-align: left;
+  font-size: 32px;
+  font-weight: bold;
+  color: rgb(114, 211, 76);
+  margin: 20px 0;
+  border: 5px solid rgb(157, 154, 152);
+  padding: 20px;
+  border-radius: 10px;
+}
+
 .portfolio-section-photos {
   background-color: rgb(58, 60, 107);
   margin-left: 15px;
