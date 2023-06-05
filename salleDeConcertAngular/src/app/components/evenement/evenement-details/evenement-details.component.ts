@@ -27,4 +27,8 @@ export class EvenementDetailsComponent {
       }
     });
   }
+
+  goBack() {
+    window.history.back();
+  }
 }

@@ -1,0 +1,22 @@
+.btn-link {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px;
+  border: 2px solid rgb(157, 154, 152);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #e48314;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-link:hover {
+  background-color: rgb(208, 178, 156);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

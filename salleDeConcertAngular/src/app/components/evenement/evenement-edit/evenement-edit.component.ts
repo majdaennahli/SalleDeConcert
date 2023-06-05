@@ -36,17 +36,27 @@ export class EvenementEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.evenement = new Evenement();
+    this.obsLocaux = this.localSrv.getLocaux();
+    this.artisteSrv.getArtistes().subscribe((res) => (this.artistes = res));
+
+    this.staffSrv.getStaffs().subscribe((res) => (this.staffs = res));
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
         this.evenementSrv.getById(params['id']).subscribe((res) => {
           this.evenement = res;
         });
+        if (this.evenement.artistes !== undefined) {
+          for (let i = 0; i < this.artistes.length; i++) {
+            for (let j = 0; j < this.evenement.artistes.length; j++) {
+              if (this.evenement.artistes[j].id == this.artistes[i].id) {
+                this.artistes[i].checked = true;
+                break;
+              }
+            }
+          }
+        }
       }
     });
-    this.obsLocaux = this.localSrv.getLocaux();
-    this.artisteSrv.getArtistes().subscribe((res) => (this.artistes = res));
-
-    this.staffSrv.getStaffs().subscribe((res) => (this.staffs = res));
   }
 
   save() {
@@ -56,7 +66,7 @@ export class EvenementEditComponent implements OnInit {
 
     this.evenement.staffs = this.staffs.filter((staff) => staff.checked);
 
-    console.log(this.evenement); /*
+    console.log(this.evenement);
     if (this.evenement.id) {
       this.evenementSrv.update(this.evenement).subscribe((res) => {
         this.router.navigateByUrl('/evenement');
@@ -65,7 +75,7 @@ export class EvenementEditComponent implements OnInit {
       this.evenementSrv.create(this.evenement).subscribe((res) => {
         this.router.navigateByUrl('/evenement');
       });
-    }*/
+    }
   }
   compareByIdLocal(locOptionActive: Local, locSelect: Local): boolean {
     if (locSelect && locOptionActive) {
@@ -73,23 +83,13 @@ export class EvenementEditComponent implements OnInit {
     }
     return false;
   }
-  // compareByIdReservation(frsOptionActive: Reservation, frsSelect: Reservation): boolean {
-  //   if (frsSelect && frsOptionActive) {
-  //     return frsOptionActive.id === frsSelect.id;
-  //   }
-  //   return false;
-  // }
-  /*
-  compareByIdStaff(stfOptionActive: Staff, stfSelect: Staff): boolean {
-    if (stfSelect && stfOptionActive) {
-      return stfOptionActive.id === stfSelect.id;
+  compareByTypeEvenement(
+    typeOptionActive: string,
+    typeSelect: string
+  ): boolean {
+    if (typeSelect && typeOptionActive) {
+      return typeOptionActive === typeSelect;
     }
     return false;
   }
-  compareByIdArtiste(artOptionActive: Artiste, artSelect: Artiste): boolean {
-    if (artSelect && artOptionActive) {
-      return artOptionActive.id === artSelect.id;
-    }
-    return false;
-  }*/
 }

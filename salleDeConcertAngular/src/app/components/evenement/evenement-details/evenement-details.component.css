@@ -1,0 +1,107 @@
+.container-event {
+  display: flex;
+  background-color: rgb(58, 60, 107);
+  color: rgb(238, 137, 35);
+  height: 75vh;
+}
+.event {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: "league_gothicregular";
+  color: rgb(238, 137, 35);
+  margin: 0;
+  font-weight: inherit;
+  line-height: 1;
+  display: block;
+
+  margin-block-start: 0.1em;
+  margin-block-end: 0.1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+label {
+  font-size: 15px;
+  font-family: "league_gothicregular";
+  color: white;
+  background-color: #8ca4d8;
+  line-height: 14px;
+  display: inline-block;
+  padding: 10px;
+  text-transform: uppercase;
+}
+.event-artistes {
+  width: 100%;
+  height: 100%;
+}
+.titre-prix {
+  display: flex;
+  margin-left: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.prix {
+  margin-left: 420px;
+  font-size: 30px;
+  color: gainsboro;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+.details-event {
+  display: flex;
+  margin-left: 40px;
+  font-size: 25px;
+}
+
+.date-event {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.actions-event {
+  display: flex;
+  justify-content: center; /* Centrer horizontalement les boutons */
+  position: fixed;
+  bottom: 100px; /* Espacement par rapport au bas de la page */
+  left: 0;
+  right: 0;
+}
+
+.action-retour,
+.action-reserver {
+  margin: 0 10px; /* Ajouter une marge horizontale pour espacer les boutons */
+}
+.cta {
+  display: inline-block;
+  background: linear-gradient(#8e86b5, #acaeed);
+  color: white;
+  border-radius: 50px;
+  border: #696484;
+  padding: 10px 25px;
+  margin-top: 15px;
+}
+.cta:hover {
+  background: linear-gradient(#696484, #8788ba);
+  text-decoration: none;
+}
+.cta2 {
+  display: inline-block;
+  background: linear-gradient(rgb(114, 211, 76), rgba(114, 211, 76, 0.358));
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 10px 25px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.cta2:hover {
+  background: linear-gradient(rgb(58, 138, 27), rgba(114, 211, 76, 0.358));
+  text-decoration: none;
+}
