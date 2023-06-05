@@ -1,0 +1,65 @@
+/* login.component.css */
+.form-group {
+  margin-bottom: 30px; /* Réduire l'espace entre les groupes de formulaire */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Utilise 100% de la hauteur de la fenêtre */
+}
+h1 {
+  margin: 50px;
+  padding: 20px;
+  margin-bottom: 15px;
+  color: rgb(166, 169, 232); /* Garder la couleur existante pour le titre */
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  width: 800px; /* Largeur du formulaire */
+  max-width: 400px;
+  margin-top: 100px; /* Réduire l'espace en haut du formulaire */
+  padding: 10px; /* Ajouter un espace interne pour le formulaire */
+  border: 2px solid #a29f9f; /* Ajouter une bordure pour délimiter le formulaire */
+  border-radius: 5px; /* Arrondir les coins de la bordure */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: rgb(239, 177, 19);
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: rgb(114, 211, 76);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: rgb(114, 211, 76);
+}
+
+.btn-link {
+  color: rgb(114, 211, 76);
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* Style pour le message d'erreur */
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}

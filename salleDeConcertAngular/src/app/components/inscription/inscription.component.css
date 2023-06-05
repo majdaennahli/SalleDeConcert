@@ -1,0 +1,75 @@
+/* Styles pour le formulaire */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px;
+  margin-bottom: 15px;
+  color: rgb(166, 169, 232); /* Garder la couleur existante pour le titre */
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: rgb(239, 177, 19);
+  font-weight: bold; /* Texte en gras */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid rgb(114, 211, 76); /* Couleur de bordure */
+  border-radius: 4px;
+  color: rgb(17, 17, 30); /* Couleur du texte */
+}
+
+input[type="submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(114, 211, 76); /* Couleur de fond du bouton */
+  color: rgb(17, 17, 30); /* Couleur du texte du bouton */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-link {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 16px;
+  color: rgb(114, 211, 76); /* Couleur du texte du lien */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styles pour les messages d'erreur */
+span.error-message {
+  display: block;
+  color: rgb(183, 90, 23); /* Couleur d'erreur existante */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Styles pour les messages de succès */
+span.success-message {
+  display: block;
+  color: rgb(128, 102, 0); /* Couleur de succès existante */
+  font-size: 14px;
+  margin-top: 5px;
+}
