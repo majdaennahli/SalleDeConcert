@@ -88,14 +88,17 @@
     </div>
     <div class="form-group">
       <label for="typeEvenement">Type d'évènement':</label>
-      <input
+      <select
         id="typeEvenement"
         name="typeEvenement"
-        [(ngModel)]="evenement.typeEvenement"
         class="form-control custom-input"
-        required
-        #nomCtrl="ngModel"
-      />
+        [(ngModel)]="evenement.typeEvenement"
+        [compareWith]="compareByTypeEvenement"
+      >
+        <option value="concert">concert</option>
+        <option value="festival">festival</option>
+        <option value="exposition">exposition</option>
+      </select>
     </div>
     <div class="form-group">
       <label for="imageURL">Lien de l'affiche de l'évènement':</label>
@@ -160,9 +163,8 @@
     </div>
     <div class="button-container">
       <div class="form-group">
-        <button type="submit" [disabled]="form.invalid" class="cta">
-          enregistrer
-        </button>
+        <!-- [disabled]="form.invalid" -->
+        <button type="submit" class="cta">enregistrer</button>
         <a routerLink="/evenement" routerLinkActive="active" class="cta2"
           >annuler</a
         >

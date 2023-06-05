@@ -1,0 +1,48 @@
+.container-event {
+  display: flex;
+  background-color: rgb(58, 60, 107);
+  color: white;
+  height: 75vh;
+}
+.event {
+  width: 100%;
+  height: 100%;
+}
+.event-artistes {
+  width: 100%;
+  height: 100%;
+}
+.titre-prix {
+  display: flex;
+  margin-left: 40px;
+  align-items: center;
+}
+.prix {
+  margin-left: 420px;
+  font-size: 30px;
+  color: gainsboro;
+  font-weight: bold;
+}
+.details-event {
+  display: flex;
+  margin-left: 40px;
+  font-size: 25px;
+}
+
+.date-event {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* .description-event {
+} */
+
+.actions-event {
+  display: flex;
+}
+
+.action-reserver {
+  margin-left: 10px;
+}
