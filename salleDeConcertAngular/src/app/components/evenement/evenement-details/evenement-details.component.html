@@ -35,16 +35,13 @@
         <div class="titre">
           <h1>{{ evenement.nom }}</h1>
         </div>
-        <div class="prix">
-          <p>{{ evenement.prix }}</p>
-        </div>
       </div>
 
       <div class="details-event">
         <div class="image-event">
           <img
-            width="300"
-            height="440"
+            width="500"
+            height="600"
             src="{{ evenement.imageURL }}"
             alt="{{ evenement.nom }}"
           />
@@ -54,41 +51,42 @@
           <div class="description-event">
             <div class="description-text">
               <p>
-                Rendez-vous à : <br />
+                Rendez-vous à :
                 {{ evenement.local?.nom }}
               </p>
+              <label for="dateDebut"> &nbsp; Du &nbsp;: </label>
+              <span>&nbsp;&nbsp;{{ evenement.dateDebut }}&nbsp;</span>
+              <label for="heureDebut">&nbsp; à &nbsp;: </label>
+              <span>&nbsp;&nbsp;{{ evenement.heureDebut }}&nbsp;</span>
+              <br />
+              <label for="dateFin">&nbsp;Au&nbsp;: </label>
+              <span>&nbsp;&nbsp;{{ evenement.dateFin }}&nbsp;</span>
+              <label for="heureFin">&nbsp;à&nbsp;: </label>
+              <span>&nbsp;&nbsp;{{ evenement.heureFin }}&nbsp;</span>
+              <br />
+              <label for="Prix">Prix: </label>
+              <span>&nbsp;&nbsp;{{ evenement.prix }}€&nbsp;</span>
             </div>
           </div>
+        </div>
 
-          <div class="hour-event">
-            <label for="dateDebut">&nbsp;Du&nbsp;: </label>
-            <span>{{ evenement.dateDebut }}</span>
-            <label for="heureDebut">&nbsp;à&nbsp;: </label>
-            <span>{{ evenement.heureDebut }}</span>
-            <br />
-            <label for="dateFin">&nbsp;Au&nbsp;: </label>
-            <span>{{ evenement.dateFin }}</span>
-            <label for="heureFin">&nbsp;à&nbsp;: </label>
-            <span>{{ evenement.heureFin }}</span>
+        <div class="actions-event">
+          <div class="action-retour">
+            <button class="cta" (click)="goBack()">Retour</button>
           </div>
-
-          <div class="actions-event">
-            <div class="action-retour">
-              <button class="btn btn-light" (click)="goBack()">Retour</button>
-            </div>
-            <div class="action-reserver">
-              <a
-                routerLink="/reservation/{{ evenement.id }}"
-                routerLinkActive="active"
-                class="btn btn-light"
-                >Réserver</a
-              >
-            </div>
+          <div class="action-reserver">
+            <a
+              routerLink="/reservation/{{ evenement.id }}"
+              routerLinkActive="active"
+              class="cta2"
+              >Réserver</a
+            >
           </div>
         </div>
       </div>
     </div>
-    <!-- <div class="event-artistes">
+  </div>
+  <!-- <div class="event-artistes">
       <div
         id="carouselExampleSlidesOnly"
         class="carousel slide"
@@ -119,5 +117,4 @@
         </div>
       </div>
     </div> -->
-  </div>
 </body>
