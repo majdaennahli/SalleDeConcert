@@ -21,7 +21,7 @@
     <td>{{ client.nom }}</td>
     <td>{{ client.prenom }}</td>
     <td>{{ client.telephone }}</td>
-    <td>{{ client.naissance }}</td>
+    <td>{{ client.naissance | date : "dd-MM-YYYY" }}</td>
     <!-- <td>
       <a
         class="btn btn-outline-primary"

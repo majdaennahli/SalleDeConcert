@@ -132,7 +132,7 @@
         <ul>
           <label for="artistes">Artistes:</label>
           <li>
-            <div *ngFor="let artiste of artistes">
+            <div class="checkbox" *ngFor="let artiste of artistes">
               <input
                 type="checkbox"
                 [checked]="artiste.checked"
@@ -149,7 +149,7 @@
         <ul>
           <label for="staffs">Staffs:</label>
           <li>
-            <div *ngFor="let staff of staffs">
+            <div class="checkbox" *ngFor="let staff of staffs">
               <input
                 type="checkbox"
                 [checked]="staff.checked"

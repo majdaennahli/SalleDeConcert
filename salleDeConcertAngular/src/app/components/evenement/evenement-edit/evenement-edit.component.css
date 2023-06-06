@@ -146,3 +146,7 @@ span {
   padding: 5px;
   border-radius: 10px;
 }
+
+.checkbox {
+  color: rgb(139, 143, 255);
+}
