@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -73,6 +74,13 @@ public class ReservationRestController {
 	@JsonView(JsonViews.ReservationWithEvenements.class)
 	public List<Reservation> getByIdEvenement(@PathVariable("idEvenement")Long idEvenement){
 		return reservationSrv.getByEvenementId(idEvenement);
+	}
+	
+
+	@DeleteMapping("/{id}")
+	@ResponseStatus(code=HttpStatus.NO_CONTENT)
+	public void delete(@PathVariable Long id) {
+		reservationSrv.delete(id);
 	}
 	
 	

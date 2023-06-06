@@ -24,16 +24,16 @@
       required
       #nomCtrl="ngModel"
     />
-    <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert alert-danger">
-      nom obligatoire
+    <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert">
+      <span>Nom obligatoire </span>
     </div>
   </div>
   <div class="button-container">
     <div class="form-group">
-      <button type="submit" [disabled]="form.invalid" class="cta">
+      <button type="submit" [disabled]="form.invalid" class="cta2">
         Enregistrer
       </button>
-      <a routerLink="/staff" routerLinkActive="active" class="cta2">Annuler</a>
+      <a routerLink="/staff" routerLinkActive="active" class="cta">Annuler</a>
     </div>
   </div>
 </form>

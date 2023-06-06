@@ -46,6 +46,7 @@ export class EvenementEditComponent implements OnInit {
       if (params['id']) {
         this.evenementSrv.getById(params['id']).subscribe((res) => {
           this.evenement = res;
+          console.log(this.evenement);
           for (let artiste of this.artistes) {
             for (let prestataire of this.evenement.artistes!) {
               if (artiste.id == prestataire.id) {

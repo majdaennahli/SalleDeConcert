@@ -18,7 +18,11 @@ export class EvenementListComponent implements OnInit {
   constructor(private evenementSrv: EvenementService) {}
 
   evenementFiltre() {
-    return this.evenements.filter((e) => e.nom?.indexOf(this.filtre) != -1);
+    const filtreLowerCase = this.filtre.toLowerCase();
+
+    return this.evenements.filter(
+      (e) => e.nom?.toLowerCase().indexOf(filtreLowerCase) != -1
+    );
   }
 
   ngOnInit(): void {

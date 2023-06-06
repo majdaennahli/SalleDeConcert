@@ -15,7 +15,11 @@ export class StaffListComponent implements OnInit {
   constructor(private staffSrv: StaffService) {}
 
   staffFiltre() {
-    return this.staffs.filter((f) => f.nom?.indexOf(this.filtre) != -1);
+    const filtreLowerCase = this.filtre.toLowerCase();
+
+    return this.staffs.filter(
+      (f) => f.nom?.toLowerCase().indexOf(filtreLowerCase) != -1
+    );
   }
 
   ngOnInit(): void {

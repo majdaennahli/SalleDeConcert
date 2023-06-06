@@ -102,12 +102,14 @@ li {
   border: #696484;
   padding: 10px 25px;
   margin-top: 15px;
+  text-decoration: none;
 }
 .cta:hover {
   background: linear-gradient(#696484, #8788ba);
   text-decoration: none;
 }
 .cta2 {
+  border: none;
   display: inline-block;
   background: linear-gradient(rgb(114, 211, 76), rgba(114, 211, 76, 0.358));
   color: white;
@@ -115,6 +117,7 @@ li {
   text-decoration: none;
   padding: 10px 25px;
   margin-left: 15px;
+  margin-right: 15px;
   margin-top: 15px;
 }
 .cta2:hover {

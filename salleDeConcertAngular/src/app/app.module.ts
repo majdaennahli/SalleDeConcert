@@ -26,6 +26,8 @@ import { AffichageEvenementComponent } from './components/evenement/affichage-ev
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { PaiementComponent } from './components/paiement/paiement.component';
 import { EvenementDetailsComponent } from './components/evenement/evenement-details/evenement-details.component';
+import { ReservationListComponent } from './components/reservation/reservation-list/reservation-list.component';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,7 @@ import { EvenementDetailsComponent } from './components/evenement/evenement-deta
     ReservationComponent,
     PaiementComponent,
     EvenementDetailsComponent,
+    ReservationListComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ import { EvenementDetailsComponent } from './components/evenement/evenement-deta
       useClass: AuthentificationInterceptor,
       multi: true,
     },
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })

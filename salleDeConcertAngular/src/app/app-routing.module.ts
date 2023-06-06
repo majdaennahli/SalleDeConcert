@@ -23,6 +23,7 @@ import { AffichageEvenementComponent } from './components/evenement/affichage-ev
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { PaiementComponent } from './components/paiement/paiement.component';
 import { EvenementDetailsComponent } from './components/evenement/evenement-details/evenement-details.component';
+import { ReservationListComponent } from './components/reservation/reservation-list/reservation-list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -139,6 +140,11 @@ const routes: Routes = [
   {
     path: 'evenement-details/:id',
     component: EvenementDetailsComponent,
+  },
+  {
+    path: 'reservation-list/:id',
+    component: ReservationListComponent,
+    canActivate: [ClientGuardService],
   },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },

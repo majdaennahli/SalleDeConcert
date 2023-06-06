@@ -41,8 +41,6 @@
           </div>
         </div>
         <div class="button-container">
-          <a class="cta" routerLink="/affichage-evenement">Retour</a>
-
           <a
             *ngIf="!verifTypeCompte() && login"
             routerLink="/reservation/{{ evenement.id }}"
@@ -50,6 +48,7 @@
             class="cta2"
             >Réserver</a
           >
+          <a class="cta" routerLink="/affichage-evenement">Retour</a>
         </div>
       </div>
       <!-- <div class="grid-paysages">

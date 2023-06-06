@@ -11,17 +11,17 @@
   <tr>
     <th>ID</th>
     <th>Nom</th>
-    <th>Nombre places assises</th>
-    <th>Nombre de places en fosse</th>
-    <th>Nombre de places PMR</th>
+    <th>Nombre de places</th>
+    <!-- <th>Nombre de places en fosse</th>
+    <th>Nombre de places PMR</th> -->
     <th></th>
   </tr>
   <tr *ngFor="let local of localFiltre()">
     <td>{{ local.id }}</td>
     <td>{{ local.nom }}</td>
     <td>{{ local.placesAssises }}</td>
-    <td>{{ local.placesFosse }}</td>
-    <td>{{ local.placesPMR }}</td>
+    <!-- <td>{{ local.placesFosse }}</td>
+    <td>{{ local.placesPMR }}</td> -->
     <td>
       <a class="cta2" [routerLink]="'/local/edit/' + local.id">Editer</a>
     </td>

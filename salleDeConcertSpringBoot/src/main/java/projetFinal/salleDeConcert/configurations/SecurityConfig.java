@@ -34,6 +34,7 @@ public class SecurityConfig {
 						.antMatchers(HttpMethod.POST,"/api/client/inscription").anonymous()
 						.antMatchers(HttpMethod.GET,"/api/client/login/**").anonymous()
 						.antMatchers(HttpMethod.GET,"/api/evenement/**").permitAll()
+						.antMatchers(HttpMethod.DELETE,"/api/reservation/**").hasRole("CLIENT")
 //							.antMatchers(HttpMethod.GET,"/api/auth").authenticated()
 //							.antMatchers("/api/commande").hasRole("CLIENT")
 //							.anyRequest().hasAnyRole("ADMIN")

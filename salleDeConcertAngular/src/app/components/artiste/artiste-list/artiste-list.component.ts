@@ -15,10 +15,12 @@ export class ArtisteListComponent {
 
   artisteFiltre() {
     Input();
+    const filtreLowerCase = this.filtre.toLowerCase();
+
     return this.artistes.filter(
       (f) =>
-        f.nomArtiste?.indexOf(this.filtre) != -1 ||
-        f.nationalite?.indexOf(this.filtre) != -1
+        f.nomArtiste?.toLowerCase().indexOf(filtreLowerCase) != -1 ||
+        f.nationalite?.toLowerCase().indexOf(filtreLowerCase) != -1
     );
   }
 

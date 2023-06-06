@@ -32,7 +32,7 @@ export class ClientService {
 
   public getByIdWithReservations(id: number): Observable<Client> {
     return this.httpClient.get<Client>(
-      `${ClientService.URL}/${id}/reservations`
+      `http://localhost:8080/salleDeConcert/api/client/${id}/reservations`
     );
   }
   public create(Client: Client): Observable<Client> {

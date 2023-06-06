@@ -23,13 +23,14 @@
         required
         #nomCtrl="ngModel"
       />
-      <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert alert-danger">
-        nom obligatoire
+      <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert">
+        <span> Nom obligatoire </span>
       </div>
     </div>
     <div class="form-group">
       <label for="prix">Prix (€):</label>
       <input
+        type="number"
         id="prix"
         name="prix"
         [(ngModel)]="evenement.prix"
@@ -164,8 +165,8 @@
     <div class="button-container">
       <div class="form-group">
         <!-- [disabled]="form.invalid" -->
-        <button type="submit" class="cta">enregistrer</button>
-        <a routerLink="/evenement" routerLinkActive="active" class="cta2"
+        <button type="submit" class="cta2">Enregistrer</button>
+        <a routerLink="/evenement" routerLinkActive="active" class="cta"
           >Annuler</a
         >
       </div>

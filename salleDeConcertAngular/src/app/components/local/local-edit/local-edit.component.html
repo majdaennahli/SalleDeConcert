@@ -3,7 +3,7 @@
 </div>
 <form (ngSubmit)="save()" #form="ngForm">
   <div class="form-group">
-    <label for="id">id:</label>
+    <label for="id">ID</label>
     <input
       id="id"
       name="id"
@@ -14,7 +14,7 @@
       disabled
     />
     <div class="form-group">
-      <label for="nom">nom:</label>
+      <label for="nom">Nom</label>
       <input
         id="nom"
         name="nom"
@@ -23,8 +23,8 @@
         required
         #nomCtrl="ngModel"
       />
-      <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert alert-danger">
-        nom obligatoire
+      <div *ngIf="nomCtrl.dirty && nomCtrl.invalid" class="alert">
+        <span>Nom obligatoire</span>
       </div>
       <!-- <div class="form-group">
     <label for="evenement">evenement</label>
@@ -42,7 +42,7 @@
       </option>
     </select>
   </div> -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="placesPMR">Nombre de places PMR</label>
         <input
           id="placesPMR"
@@ -51,17 +51,22 @@
           class="form-control custom-input"
           required
         />
-      </div>
+      </div> -->
       <div class="form-group">
-        <label for="placesAssises">Nombre de places assises</label>
+        <label for="placesAssises">Nombre de places</label>
         <input
+          type="number"
           id="placesAssises"
           name="placesAssises"
           [(ngModel)]="local.placesAssises"
           class="form-control custom-input"
           required
+          #placeCtrl="ngModel"
         />
-      </div>
+        <div *ngIf="placeCtrl.dirty && placeCtrl.invalid" class="alert">
+          <span>Nombre de places obligatoire</span>
+        </div>
+        <!-- </div>
       <div class="form-group">
         <label for="placesFosse">Nombre de places en fosse</label>
         <input
@@ -71,27 +76,26 @@
           class="form-control custom-input"
           required
         />
-      </div>
-      <div class="form-group">
-        <label for="imageURL">Lien de la photo du local</label>
-        <input
-          id="imageURL"
-          name="imageURL"
-          [(ngModel)]="local.imageURL"
-          class="form-control custom-input"
-          required
-          #nomCtrl="ngModel"
-        />
-      </div>
-
-      <div class="button-container">
+      </div> -->
         <div class="form-group">
-          <button type="submit" [disabled]="form.invalid" class="cta">
-            Enregistrer
-          </button>
-          <a routerLink="/local" routerLinkActive="active" class="cta2"
-            >Annuler</a
-          >
+          <label for="imageURL">Lien de la photo du local</label>
+          <input
+            id="imageURL"
+            name="imageURL"
+            [(ngModel)]="local.imageURL"
+            class="form-control custom-input"
+          />
+        </div>
+
+        <div class="button-container">
+          <div class="form-group">
+            <button type="submit" [disabled]="form.invalid" class="cta2">
+              Enregistrer
+            </button>
+            <a routerLink="/local" routerLinkActive="active" class="cta"
+              >Annuler</a
+            >
+          </div>
         </div>
       </div>
     </div>

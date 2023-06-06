@@ -14,7 +14,12 @@ export class ClientListComponent implements OnInit {
   constructor(private clientSrv: ClientService) {}
 
   clientFiltre() {
-    return this.clients.filter((f) => f.nom?.indexOf(this.filtre) != -1);
+    const filtreLowerCase = this.filtre.toLowerCase();
+    return this.clients.filter((f) => {
+      const nomMatch = f.nom?.toLowerCase().indexOf(filtreLowerCase) !== -1;
+      const loginMatch = f.login?.toLowerCase().indexOf(filtreLowerCase) !== -1;
+      return nomMatch || loginMatch;
+    });
   }
 
   ngOnInit(): void {

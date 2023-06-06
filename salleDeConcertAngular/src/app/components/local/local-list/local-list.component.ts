@@ -14,7 +14,11 @@ export class LocalListComponent implements OnInit {
   constructor(private localSrv: LocalService) {}
 
   localFiltre() {
-    return this.locaux.filter((l) => l.nom?.indexOf(this.filtre) != -1);
+    const filtreLowerCase = this.filtre.toLowerCase();
+
+    return this.locaux.filter(
+      (l) => l.nom?.toLowerCase().indexOf(filtreLowerCase) != -1
+    );
   }
 
   ngOnInit(): void {

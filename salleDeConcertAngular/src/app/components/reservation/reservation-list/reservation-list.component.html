@@ -1,0 +1,27 @@
+<h1>Vos Reservations:</h1>
+
+<table class="table">
+  <tr>
+    <th>Evenement</th>
+    <th>Date de l'événement</th>
+    <th>Prix de la réservation</th>
+    <th>Nombre de places</th>
+    <th>Date de la réservation</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let reservation of client.reservations">
+    <td>{{ reservation.evenement?.nom }}</td>
+    <td>{{ reservation.evenement?.dateDebut | date : "dd-MM-YYY" }}</td>
+    <td>{{ reservation.prix }} €</td>
+    <td>{{ reservation.nombrePlaces }}</td>
+    <td>{{ reservation.dateReserv | date : "dd-MM-YYY" }}</td>
+    <td>
+      <button (click)="deleteReservation(reservation.id!)" class="cta2">
+        Annuler Reservation
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/client/home" routerLinkActive="active" class="cta"
+  >Retour accueil</a
+>

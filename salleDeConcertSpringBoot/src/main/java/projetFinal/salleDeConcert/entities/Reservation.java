@@ -40,7 +40,7 @@ public class Reservation {
 	private Client client;
 	@ManyToOne
 	@JoinColumn(name="reservation_event_id",foreignKey = @ForeignKey(name="reservation_event_id_fk"))
-	@JsonView(JsonViews.ReservationWithEvenements.class)
+	@JsonView(JsonViews.Base.class)
 	private Evenement evenement;
 	@ManyToMany(mappedBy = "reservations")
 	@JsonView(JsonViews.ReservationWithParticipants.class)

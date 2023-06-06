@@ -5,8 +5,12 @@
     /></a>
 
     <ul class="menu">
-      <li *ngIf="!verifTypeCompte()">
+      <li *ngIf="!verifTypeCompte() && login">
         <a routerLink="/client/home" routerLinkActive="active">Accueil</a>
+        <div></div>
+      </li>
+      <li *ngIf="!login">
+        <a routerLink="/home" routerLinkActive="active">Accueil</a>
         <div></div>
       </li>
       <li *ngIf="verifTypeCompte()">
