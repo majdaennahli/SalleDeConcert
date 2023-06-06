@@ -37,24 +37,30 @@ export class EvenementEditComponent implements OnInit {
   ngOnInit(): void {
     this.evenement = new Evenement();
     this.obsLocaux = this.localSrv.getLocaux();
-    this.artisteSrv.getArtistes().subscribe((res) => (this.artistes = res));
+    this.artisteSrv.getArtistes().subscribe((res) => {
+      this.artistes = res;
+    });
 
     this.staffSrv.getStaffs().subscribe((res) => (this.staffs = res));
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
         this.evenementSrv.getById(params['id']).subscribe((res) => {
           this.evenement = res;
-        });
-        if (this.evenement.artistes !== undefined) {
-          for (let i = 0; i < this.artistes.length; i++) {
-            for (let j = 0; j < this.evenement.artistes.length; j++) {
-              if (this.evenement.artistes[j].id == this.artistes[i].id) {
-                this.artistes[i].checked = true;
-                break;
+          for (let artiste of this.artistes) {
+            for (let prestataire of this.evenement.artistes!) {
+              if (artiste.id == prestataire.id) {
+                artiste.checked = true;
               }
             }
           }
-        }
+          for (let staff of this.staffs) {
+            for (let staff2 of this.evenement.staffs!) {
+              if (staff.id == staff2.id) {
+                staff.checked = true;
+              }
+            }
+          }
+        });
       }
     });
   }

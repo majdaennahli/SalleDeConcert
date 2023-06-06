@@ -1,24 +1,33 @@
-<h1>inscription</h1>
+<div class="title-container">
+  <h1>Inscription</h1>
+</div>
 <form (ngSubmit)="submit()" [formGroup]="form">
   <div class="form-group">
-    <label for="login">login:</label>
-    <input id="login" class="form-control" formControlName="login" />
-    <div *ngIf="form.get('login')?.dirty && form.get('login')?.invalid">
+    <label for="login">Login:</label>
+    <input
+      id="login"
+      class="form-control custom-input custom-input"
+      formControlName="login"
+    />
+    <div
+      class="alert"
+      *ngIf="form.get('login')?.dirty && form.get('login')?.invalid"
+    >
       <span *ngIf="form.get('login')?.hasError('required')"
-        >*login obligatoire</span
+        >*Login obligatoire</span
       >
       <span *ngIf="form.get('login')?.hasError('loginExist')"
-        >*login deja utilisé</span
+        >*Login déjà utilisé</span
       >
     </div>
   </div>
   <ng-container formGroupName="passwordGrp">
     <div class="form-group">
-      <label for="password">mot de passe:</label>
+      <label for="password">Mot de passe:</label>
       <input
         id="password"
         type="password"
-        class="form-control"
+        class="form-control custom-input"
         formControlName="password"
       />
       <div
@@ -27,78 +36,93 @@
           form.get('passwordGrp.password')?.invalid
         "
       >
-        <span *ngIf="form.get('passwordGrp.password')?.hasError('required')">
-          *mot de passe obligatoire
-        </span>
-        <span *ngIf="form.get('passwordGrp.password')?.hasError('pattern')">
-          *doit contenir majuscule, minuscule, chiffre et caracteres speciaux
-        </span>
+        <div class="alert">
+          <span *ngIf="form.get('passwordGrp.password')?.hasError('required')">
+            *mot de passe obligatoire
+          </span>
+          <span *ngIf="form.get('passwordGrp.password')?.hasError('pattern')">
+            *doit contenir 1 maj, 1 min ,1 chiffre et 1 caractère spécial
+          </span>
+        </div>
       </div>
     </div>
     <div class="form-group">
-      <label for="confirmPassword">confirmation du mot de passe:</label>
+      <label for="confirmPassword">Confirmation du mot de passe:</label>
       <input
         id="confirmPassword"
         type="Password"
-        class="form-control"
+        class="form-control custom-input"
         formControlName="confirmPassword"
       />
-      <span
-        *ngIf="form.get('passwordGrp.confirmPassword')?.hasError('pattern')"
-      >
-        *doit contenir majuscule, minuscule, chiffre et caracteres speciaux
-      </span>
-      <span *ngIf=""> *les deux mots de passe sont différents </span>
+      <div class="alert">
+        <span
+          *ngIf="form.get('passwordGrp.confirmPassword')?.hasError('pattern')"
+        >
+          *doit contenir majuscule, minuscule, chiffre et caracteres speciaux
+        </span>
+      </div>
+      <span *ngIf=""> *Les deux mots de passe sont différents </span>
     </div>
   </ng-container>
 
   <div class="form-group">
-    <label for="prenom">prenom:</label>
-    <input id="prenom" class="form-control" formControlName="prenom" />
-    <div *ngIf="form.get('prenom')?.dirty && form.get('prenom')?.invalid">
-      prenom obligatoire*
+    <label for="prenom">Prenom:</label>
+    <input
+      id="prenom"
+      class="form-control custom-input"
+      formControlName="prenom"
+    />
+    <div class="alert">
+      <span *ngIf="form.get('prenom')?.dirty && form.get('prenom')?.invalid">
+        Prénom obligatoire*
+      </span>
     </div>
   </div>
   <div class="form-group">
-    <label for="nom">nom:</label>
-    <input id="nom" class="form-control" formControlName="nom" />
-    <div *ngIf="form.get('nom')?.dirty && form.get('nom')?.invalid">
-      nom obligatoire*
+    <label for="nom">Nom:</label>
+    <input id="nom" class="form-control custom-input" formControlName="nom" />
+    <div class="alert">
+      <span *ngIf="form.get('nom')?.dirty && form.get('nom')?.invalid">
+        Nom obligatoire*
+      </span>
     </div>
   </div>
   <div class="form-group">
-    <label for="telephone">telephone:</label>
-    <input id="telephone" class="form-control" formControlName="telephone" />
-    <div *ngIf="form.get('telephone')?.dirty && form.get('telephone')?.invalid">
-      telephone obligatoire*
+    <label for="telephone">Téléphone:</label>
+    <input
+      id="telephone"
+      class="form-control custom-input"
+      formControlName="telephone"
+    />
+    <div class="alert">
+      <span
+        *ngIf="form.get('telephone')?.dirty && form.get('telephone')?.invalid"
+      >
+        Téléphone obligatoire*
+      </span>
     </div>
   </div>
   <div class="form-group">
-    <label for="dateNaissance">date de naissance:</label>
+    <label for="dateNaissance">Date de naissance:</label>
     <input
       id="dateNaissance"
       type="date"
-      class="form-control"
+      class="form-control custom-input"
       formControlName="dateNaissance"
     />
-    <div
-      *ngIf="
-        form.get('dateNaissance')?.dirty && form.get('dateNaissance')?.invalid
-      "
-    >
-      date de naissance obligatoire*
+    <div class="alert">
+      <span
+        *ngIf="
+          form.get('dateNaissance')?.dirty && form.get('dateNaissance')?.invalid
+        "
+      >
+        Date de naissance obligatoire*
+      </span>
     </div>
   </div>
 
-  <div>
-    <button
-      type="submit"
-      class="btn btn-outline-primary"
-      [disabled]="form.invalid"
-    >
-      Envoyer</button
-    ><a routerLink="/home" routerLinkActive="active" class="btn btn-link"
-      >Annuler</a
-    >
+  <div class="button-container">
+    <button type="submit" class="cta" [disabled]="form.invalid">Envoyer</button
+    ><a routerLink="/home" routerLinkActive="active" class="cta2">Annuler</a>
   </div>
 </form>

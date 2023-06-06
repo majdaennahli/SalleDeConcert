@@ -1,10 +1,9 @@
 h1 {
-  text-align: left;
+  text-align: center;
   font-size: 32px;
   font-weight: bold;
-  color: rgb(114, 211, 76);
-  margin: 20px 0;
-  border: 5px solid rgb(157, 154, 152);
+  color: rgba(139, 143, 255, 0.669);
+
   padding: 20px;
   border-radius: 10px;
 }
@@ -20,22 +19,23 @@ h1 {
   margin-bottom: 80px;
 }
 
-.grid-paysages {
+/* .grid-paysages {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 500px 500px 500px;
+  grid-template-rows: 35em 35em 35em;
   gap: 15px;
-}
-
-.grid-portraits {
+} */
+.grid-paysages {
+  width: 80%;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 300px 300px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 20vw;
   gap: 15px;
+  margin-bottom: 30px;
 }
 
-.grid-paysages img,
-.grid-portraits img {
+.grid-paysages img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -54,7 +54,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5em;
+  font-size: 1.5vw;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
   display: none;

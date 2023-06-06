@@ -1,17 +1,16 @@
-.btn-link {
+.cta2 {
   display: inline-block;
-  margin: 10px;
-  padding: 15px;
-  border: 2px solid rgb(157, 154, 152);
-  border-radius: 8px;
+  background: linear-gradient(rgb(114, 211, 76), rgba(114, 211, 76, 0.358));
+  color: white;
+  border-radius: 10px;
   text-decoration: none;
-  color: #e48314;
-  font-size: 18px;
-  font-weight: bold;
+  padding: 10px 25px;
+  margin-left: 15px;
+  margin-top: 15px;
 }
-
-.btn-link:hover {
-  background-color: rgb(208, 178, 156);
+.cta2:hover {
+  background: linear-gradient(rgb(58, 138, 27), rgba(114, 211, 76, 0.358));
+  text-decoration: none;
 }
 
 .container {

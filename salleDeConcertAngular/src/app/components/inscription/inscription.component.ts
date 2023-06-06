@@ -36,10 +36,10 @@ export class InscriptionComponent implements OnInit {
         {
           password: new FormControl('', [
             Validators.required,
-            // Validators.pattern(
-            //   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{4,}$/
-            //   ///^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{4,}$/
-            // ),
+            Validators.pattern(
+              /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{4,}$/
+              ///^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{4,}$/
+            ),
           ]),
           confirmPassword: new FormControl(),
         },

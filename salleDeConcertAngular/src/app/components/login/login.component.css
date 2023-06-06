@@ -1,65 +1,146 @@
-/* login.component.css */
-.form-group {
-  margin-bottom: 30px; /* Réduire l'espace entre les groupes de formulaire */
+h1,
+form {
+  background-color: rgb(58, 60, 107);
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh; /* Utilise 100% de la hauteur de la fenêtre */
-}
 h1 {
-  margin: 50px;
-  padding: 20px;
   margin-bottom: 15px;
-  color: rgb(166, 169, 232); /* Garder la couleur existante pour le titre */
+  color: rgb(139, 143, 255);
   font-weight: bold;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-form {
-  width: 800px; /* Largeur du formulaire */
-  max-width: 400px;
-  margin-top: 100px; /* Réduire l'espace en haut du formulaire */
-  padding: 10px; /* Ajouter un espace interne pour le formulaire */
-  border: 2px solid #a29f9f; /* Ajouter une bordure pour délimiter le formulaire */
-  border-radius: 5px; /* Arrondir les coins de la bordure */
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(58, 60, 107);
+}
+input {
+  width: 30%;
+}
+input {
+  background-color: rgb(31, 32, 57);
+  color: white;
+  border-color: black;
+  margin: auto;
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
-  color: rgb(239, 177, 19);
-  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  color: rgb(139, 143, 255);
 }
 
-.btn-primary {
-  background-color: rgb(114, 211, 76);
-  color: #fff;
+input:focus {
+  background-color: rgb(39, 40, 71);
+  color: white;
+}
+.custom-input:focus {
+  border-color: rgb(139, 143, 255);
+  box-shadow: 0rem 0rem 0.25rem 0.25rem rgb(139, 143, 255);
+}
+.custom-disabled-input {
+  background-color: rgba(
+    189,
+    189,
+    189,
+    0.082
+  ); /* Couleur de fond pour les inputs désactivés */
+  color: black; /* Couleur du texte pour les inputs désactivés */
+  border-color: black; /* Couleur du cadre pour les inputs désactivés */
+  /* Ajoutez d'autres styles personnalisés si nécessaire */
 }
 
-.btn-primary:hover {
-  background-color: rgb(114, 211, 76);
+select,
+option {
+  color: white;
+  width: 50%;
+  margin: auto;
 }
 
-.btn-link {
-  color: rgb(114, 211, 76);
+select:focus {
+  background-color: rgb(39, 40, 71);
+  color: white;
+}
+
+select {
+  border-color: black;
+  background-color: rgb(31, 32, 57);
+}
+option {
+  background-color: rgb(31, 32, 57);
+}
+
+#artiste,
+#staff {
+  width: 12px;
+  height: 12px;
+  margin: auto;
+}
+
+.custom-checkbox {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.artiste-staffs-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 20%;
+}
+li {
+  list-style: none;
+}
+
+.cta {
+  display: inline-block;
+  background: linear-gradient(#8e86b5, #acaeed);
+  color: white;
+  border-radius: 50px;
+  border: #696484;
+  padding: 10px 25px;
+  margin-top: 15px;
+}
+.cta:hover {
+  background: linear-gradient(#696484, #8788ba);
+  text-decoration: none;
+}
+.cta2 {
+  display: inline-block;
+  background: linear-gradient(rgb(114, 211, 76), rgba(114, 211, 76, 0.358));
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 10px 25px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.cta2:hover {
+  background: linear-gradient(rgb(58, 138, 27), rgba(114, 211, 76, 0.358));
   text-decoration: none;
 }
 
-.btn-link:hover {
-  text-decoration: underline;
+.button-container {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  margin: auto;
+  margin-bottom: 15px;
 }
-
-/* Style pour le message d'erreur */
-.alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #f5c6cb;
-  border-radius: 4px;
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 0;
+  margin-top: 10px;
+}
+span {
+  background-color: rgb(166, 101, 101);
+  border-color: rgb(86, 10, 10);
+  color: rgb(86, 10, 10);
+  padding: 5px;
+  border-radius: 10px;
 }

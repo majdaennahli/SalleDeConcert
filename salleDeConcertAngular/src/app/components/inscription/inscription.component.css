@@ -1,75 +1,146 @@
-/* Styles pour le formulaire */
+h1,
 form {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 20px;
+  background-color: rgb(58, 60, 107);
 }
 
 h1 {
-  margin: 0;
-  padding: 20px;
   margin-bottom: 15px;
-  color: rgb(166, 169, 232); /* Garder la couleur existante pour le titre */
+  color: rgb(139, 143, 255);
   font-weight: bold;
-  text-align: center;
+}
+
+.title-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  background-color: rgb(58, 60, 107);
+}
+input {
+  width: 50%;
+}
+input {
+  background-color: rgb(31, 32, 57);
+  color: white;
+  border-color: black;
+  margin: auto;
 }
 
 label {
-  display: block;
-  font-weight: bold;
-  color: rgb(239, 177, 19);
-  font-weight: bold; /* Texte en gras */
+  display: flex;
+  justify-content: center;
+  color: rgb(139, 143, 255);
 }
 
-input[type="text"],
-input[type="password"],
-input[type="date"] {
-  width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid rgb(114, 211, 76); /* Couleur de bordure */
-  border-radius: 4px;
-  color: rgb(17, 17, 30); /* Couleur du texte */
+input:focus {
+  background-color: rgb(39, 40, 71);
+  color: white;
+}
+.custom-input:focus {
+  border-color: rgb(139, 143, 255);
+  box-shadow: 0rem 0rem 0.25rem 0.25rem rgb(139, 143, 255);
+}
+.custom-disabled-input {
+  background-color: rgba(
+    189,
+    189,
+    189,
+    0.082
+  ); /* Couleur de fond pour les inputs désactivés */
+  color: black; /* Couleur du texte pour les inputs désactivés */
+  border-color: black; /* Couleur du cadre pour les inputs désactivés */
+  /* Ajoutez d'autres styles personnalisés si nécessaire */
 }
 
-input[type="submit"] {
+select,
+option {
+  color: white;
+  width: 50%;
+  margin: auto;
+}
+
+select:focus {
+  background-color: rgb(39, 40, 71);
+  color: white;
+}
+
+select {
+  border-color: black;
+  background-color: rgb(31, 32, 57);
+}
+option {
+  background-color: rgb(31, 32, 57);
+}
+
+#artiste,
+#staff {
+  width: 12px;
+  height: 12px;
+  margin: auto;
+}
+
+.custom-checkbox {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.artiste-staffs-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 20%;
+}
+li {
+  list-style: none;
+}
+
+.cta {
   display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: rgb(114, 211, 76); /* Couleur de fond du bouton */
-  color: rgb(17, 17, 30); /* Couleur du texte du bouton */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  background: linear-gradient(#8e86b5, #acaeed);
+  color: white;
+  border-radius: 50px;
+  border: #696484;
+  padding: 10px 25px;
+  margin-top: 15px;
 }
-
-.btn-link {
-  display: inline-block;
-  margin-left: 10px;
-  font-size: 16px;
-  color: rgb(114, 211, 76); /* Couleur du texte du lien */
+.cta:hover {
+  background: linear-gradient(#696484, #8788ba);
   text-decoration: none;
-  cursor: pointer;
+}
+.cta2 {
+  display: inline-block;
+  background: linear-gradient(rgb(114, 211, 76), rgba(114, 211, 76, 0.358));
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 10px 25px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.cta2:hover {
+  background: linear-gradient(rgb(58, 138, 27), rgba(114, 211, 76, 0.358));
+  text-decoration: none;
 }
 
-/* Styles pour les messages d'erreur */
-span.error-message {
-  display: block;
-  color: rgb(183, 90, 23); /* Couleur d'erreur existante */
-  font-size: 14px;
-  margin-top: 5px;
+.button-container {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 15px;
 }
-
-/* Styles pour les messages de succès */
-span.success-message {
-  display: block;
-  color: rgb(128, 102, 0); /* Couleur de succès existante */
-  font-size: 14px;
-  margin-top: 5px;
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 0;
+  margin-top: 10px;
+}
+span {
+  background-color: rgb(166, 101, 101);
+  border-color: rgb(86, 10, 10);
+  color: rgb(86, 10, 10);
+  padding: 5px;
+  border-radius: 10px;
 }

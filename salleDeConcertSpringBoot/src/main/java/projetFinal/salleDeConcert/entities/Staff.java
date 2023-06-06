@@ -72,6 +72,12 @@ public class Staff {
 		return id == other.id;
 	}
 	
+	@JsonView(JsonViews.Base.class)
+	public boolean getChecked() 
+	{
+		return false;
+	}
+	
 	
 	
 }

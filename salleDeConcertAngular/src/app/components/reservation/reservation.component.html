@@ -1,167 +1,193 @@
-<h1>Réservation</h1>
-<div id="event">
-  <div class="title-container">
-    <div>
-      <h2>Evènement sélectioné</h2>
-      <div class="form-group">
-        <label for="nom">Nom:</label>
-        <input
-          id="nom"
-          class="form-control"
-          [(ngModel)]="evenement.nom"
-          readonly
-        />
-      </div>
-      <div class="form-group">
-        <label for="prix">Prix:</label>
-        <input
-          type="number"
-          step="0.01"
-          id="prix"
-          [(ngModel)]="evenement.prix"
-          readonly
-        />€
-      </div>
-      <div class="form-group">
-        <label for="dateDebut">Début:</label>
-        <input id="dateDebut" type="date" [(ngModel)]="evenement.dateDebut" />
-        <!-- <label for="heureDebut">heure de début:</label> -->
-        <input id="heureDebut" type="time" [(ngModel)]="evenement.heureDebut" />
-      </div>
-      <div class="form-group">
-        <label for="dateFin">Fin:</label>
-        <input id="dateFin" type="date" [(ngModel)]="evenement.dateFin" />
-        <!-- <label for="heureFin">heure de fin:</label> -->
-        <input id="heureFin" type="time" [(ngModel)]="evenement.heureFin" />
-      </div>
+<div class="title-container">
+  <h1>Réservation</h1>
+</div>
+<div class="container">
+  <div class="event">
+    <h2>Evènement sélectionné</h2>
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input
+        id="nom"
+        class="form-control custom-input custom-disabled-input"
+        [(ngModel)]="evenement.nom"
+        readonly
+        disabled
+      />
     </div>
-
-    <div id="place">
-      <h2>Sélectionnez vos places</h2>
-      <div class="form-group">
-        <label for="code">Nombre de place:</label>
-        <input
-          type="number"
-          min="1"
-          name="number"
-          id="number"
-          [(ngModel)]="nombrePlaces"
-          (ngModelChange)="calculatePrixFinal()"
-        />
-      </div>
-      <div class="form-group">
-        <label for="prixFinal">Prix final:</label>
-        <input id="prixFinal" [(ngModel)]="prixFinal" readonly />
-        €
-      </div>
+    <div class="form-group">
+      <label for="prix">Prix en €</label>
+      <input
+        type="number"
+        step="0.01"
+        id="prix"
+        [ngModel]="evenement.prix"
+        readonly
+        disabled
+        class="form-control custom-input custom-disabled-input"
+      />
     </div>
+    <div class="form-group">
+      <label for="dateDebut">Début:</label>
+      <input
+        class="form-control custom-input custom-disabled-input"
+        id="dateDebut"
+        type="date"
+        disabled=""
+        [(ngModel)]="evenement.dateDebut"
+      />
+      <!-- <label for="heureDebut">heure de début:</label> -->
+      <input
+        disabled=""
+        id="heureDebut"
+        type="time"
+        class="form-control custom-input custom-disabled-input"
+        [(ngModel)]="evenement.heureDebut"
+      />
+    </div>
+    <div class="form-group">
+      <label for="dateFin">Fin:</label>
+      <input
+        class="form-control custom-input custom-disabled-input"
+        id="dateFin"
+        type="date"
+        [(ngModel)]="evenement.dateFin"
+        disabled=""
+      />
+      <!-- <label for="heureFin">heure de fin:</label> -->
 
-    <div id="payer">
-      <h2>Payez en ligne</h2>
-      <form (ngSubmit)="save()" [formGroup]="form">
-        <div class="form-group">
-          <label for="typecarte">Type de carbe bancaire:</label>
+      <input
+        class="form-control custom-input custom-disabled-input"
+        id="heureFin"
+        type="time"
+        [(ngModel)]="evenement.heureFin"
+        disabled=""
+      />
+    </div>
+  </div>
 
-          <input type="radio" name="typecarte" id="visa" />
-          <label for="visa"></label>
-          <img src="./assets/typeCB/visa.png" id="visalogo" />
+  <div class="place">
+    <h2>Sélectionnez vos places</h2>
+    <div class="form-group">
+      <label for="code">Nombre de place:</label>
+      <input
+        type="number"
+        min="1"
+        name="number"
+        id="number"
+        class="form-control custom-input custom-input"
+        [(ngModel)]="nombrePlaces"
+        (ngModelChange)="calculatePrixFinal()"
+      />
+    </div>
+    <div class="form-group">
+      <label for="prixFinal">Prix final en €:</label>
+      <input
+        class="form-control custom-input custom-input"
+        id="prixFinal"
+        [(ngModel)]="prixFinal"
+        readonly
+      />
+    </div>
+  </div>
 
-          <input type="radio" name="typecarte" id="AmEx" />
-          <label for="AmEx"></label>
-          <img src="./assets/typeCB/amex.png" id="amexlogo" />
-
-          <input type="radio" name="typecarte" id="Mastercard" />
-          <label for="Mastercard"></label>
-          <img src="./assets/typeCB/mastercard.png" id="mastercardlogo" />
-        </div>
-
-        <div class="form-group">
-          <label for="porteur">Nom sur la carte:</label>
-          <input
-            id="porteur"
-            name="porteur"
-            class="form-control"
-            required
-            formControlName="porteur"
-            placeholder="nom sur la carte"
-          />
-          <div
-            *ngIf="form.get('porteur')?.dirty && form.get('porteur')?.invalid"
-          >
-            nom du porteur obligatoire
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="numcarte">N° de carte:</label>
-          <input
-            id="numcarte"
-            name="numcarte"
-            class="form-control"
-            maxlength="16"
-            minlength="16"
-            required
-            formControlName="numcarte"
-            placeholder="**** **** **** ****"
-          />
-          <div
-            *ngIf="form.get('numcarte')?.dirty && form.get('numcarte')?.invalid"
-          >
-            numéro de carte obligatoire
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="expiration">Date d'expiration:</label>
-          <input
-            [(ngModel)]="expiration"
-            id="expiration"
-            type="month"
-            class="form-control"
-            formControlName="expiration"
-          />
-          <div
-            *ngIf="
-              form.get('expiration')?.dirty && form.get('expiration')?.invalid
-            "
-          >
-            date d'expiration obligatoire*
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="code">Cryptogramme:</label>
-          <input
-            id="code"
-            name="code"
-            maxlength="3"
-            minlength="3"
-            class="form-control"
-            required
-            formControlName="code"
-            placeholder="***"
-          />
-          <div *ngIf="form.get('code')?.dirty && form.get('code')?.invalid">
-            code sécurité obligatoire
-          </div>
-        </div>
-
+  <div class="payer">
+    <h2>Payez en ligne</h2>
+    <form (ngSubmit)="save()" [formGroup]="form">
+      <label for="typecarte">Type de carbe bancaire:</label>
+      <div class="typeCarte">
         <div>
-          <button
-            type="submit"
-            [disabled]="form.invalid"
-            class="btn btn-outline-primary"
-          >
-            Valider
-          </button>
-          <a
-            routerLink="/reservation"
-            routerLinkActive="active"
-            class="btn btn-outline-warning"
-            >Annuler</a
-          >
+          <img src="./assets/typeCB/visa.png" id="visalogo" />
+          <input type="radio" name="typecarte" id="visa" />
         </div>
-      </form>
-    </div>
+        <div>
+          <img src="./assets/typeCB/amex.png" id="amexlogo" />
+          <input type="radio" name="typecarte" id="AmEx" />
+        </div>
+        <div>
+          <img src="./assets/typeCB/mastercard.png" id="mastercardlogo" />
+          <input type="radio" name="typecarte" id="Mastercard" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="porteur">Nom sur la carte:</label>
+        <input
+          id="porteur"
+          name="porteur"
+          class="form-control custom-input"
+          required
+          formControlName="porteur"
+          placeholder="nom sur la carte"
+        />
+        <div *ngIf="form.get('porteur')?.dirty && form.get('porteur')?.invalid">
+          nom du porteur obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="numcarte">N° de carte:</label>
+        <input
+          id="numcarte"
+          name="numcarte"
+          class="form-control custom-input"
+          maxlength="16"
+          minlength="16"
+          required
+          formControlName="numcarte"
+          placeholder="**** **** **** ****"
+        />
+        <div
+          *ngIf="form.get('numcarte')?.dirty && form.get('numcarte')?.invalid"
+        >
+          numéro de carte obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="expiration">Date d'expiration:</label>
+        <input
+          [(ngModel)]="expiration"
+          id="expiration"
+          type="month"
+          class="form-control custom-input"
+          formControlName="expiration"
+        />
+        <div
+          *ngIf="
+            form.get('expiration')?.dirty && form.get('expiration')?.invalid
+          "
+        >
+          date d'expiration obligatoire*
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="code">Cryptogramme:</label>
+        <input
+          id="code"
+          name="code"
+          maxlength="3"
+          minlength="3"
+          class="form-control custom-input"
+          required
+          formControlName="code"
+          placeholder="***"
+        />
+        <div *ngIf="form.get('code')?.dirty && form.get('code')?.invalid">
+          code sécurité obligatoire
+        </div>
+      </div>
+      <div class="button-container">
+        <button type="submit" [disabled]="form.invalid" class="cta">
+          Valider
+        </button>
+        <a
+          routerLink="/evenement-details/{{ evenement.id }}"
+          routerLinkActive="active"
+          class="cta2"
+          >Annuler</a
+        >
+      </div>
+    </form>
   </div>
 </div>
